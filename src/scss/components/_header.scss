@@ -16,9 +16,10 @@
 
   &__logo {
     display: flex;
-    
+      margin-right: -179px;
+      //  width nav 358px if -179px logo will be center 
       font-size: 20px;
-    font-weight: 700;
+      font-weight: 700;
     img {
       margin-right: 15px;
     }
