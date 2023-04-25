@@ -1,11 +1,17 @@
 @import '../variables.scss';
 
 .header {
+  position: fixed;
+  background: #fff;
+  left: center;
+  top: 0;
+  z-index: 10;
   height: 100px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  max-width: 1920px;
   padding: 0 70px;
 
   .container {
@@ -27,17 +33,16 @@
     }
   }
   &__nav {
-    width: 100%;
+    margin: 0 70px;
+    width: 1000px;
     display: flex;
     justify-content: center;
    ul{
-    max-width: 600px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
    }
  .link__nav{
-  // padding: 15px 100px;
-  // margin:10px 4px;
   color: $black;
   font-family: sans-serif;
   text-transform: uppercase;

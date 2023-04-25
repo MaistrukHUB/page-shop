@@ -18,11 +18,9 @@ body {
 }
 
 .content {
-  padding: 40px ;
+  padding-top: 30px;
+  padding-left: 70px;
   width: 70%;
-  // background: #9f8f8f;
-
-
 
   &__title {
     margin: 35px 0;
@@ -41,16 +39,17 @@ body {
     justify-content: space-between;
   }
 }
-.sidebar{
-  padding: 40px ;
-  width: 30%;
-  background: #777777;
-}
+
 
 .container {
-  width: $container-width;
+  // width: $container-width;
+  max-width: 1920px;
+  position: relative;
   margin: 0 auto;
+  margin-top: 100px;
   display:flex;
+  height: 100vh;
+
   &--cart {
     max-width: 820px;
     margin: 90px auto;

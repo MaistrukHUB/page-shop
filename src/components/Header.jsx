@@ -2,8 +2,12 @@ import React from 'react';
 
 const headerNav = [
 	{
+		type: '/',
+		name: 'Головна'
+	},
+	{
 		type: 'shop',
-		name: 'магазин'
+		name: 'Магазин'
 	},
 	{
 		type: 'about',

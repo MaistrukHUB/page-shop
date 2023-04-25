@@ -1,0 +1,29 @@
+.sidebar{
+	position: absolute;
+	right: 0;
+	height: 100vh;
+	padding: 40px ;
+	width: 28%;
+	display: flex;
+	flex-direction: column;
+ }
+
+ 
+
+ .price-list{
+	border-left: 2px solid $black;
+	padding-left: 20px;
+	display: flex;
+	flex-direction: column;
+	&__title{
+		font-size: 52px;
+		margin-bottom: 20px;
+	}
+	li{
+		font-size: 20px;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 30px;
+	}
+ }
