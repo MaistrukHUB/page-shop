@@ -3,6 +3,7 @@ import ContentLoader from "react-content-loader"
 
 const MyLoader = (props) => (
 	<ContentLoader
+		className={'product-block'}
 		speed={2}
 		width={260}
 		height={450}

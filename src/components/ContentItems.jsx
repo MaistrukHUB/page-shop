@@ -2,14 +2,14 @@ import React from 'react';
 import { ProductBlock, MyLoader } from "../components";
 
 
-const ContentItems = ({ products }) => {
+const ContentItems = ({ products, isLoading }) => {
 
 	return (
 		<div className="content__items">
-			{
-				products && products.map((obj) => (
-					// <ProductBlock key={obj.id} itemObj={obj} />
-					<MyLoader />
+			{isLoading
+				? [...new Array(6)].map((_, index) => <MyLoader key={index} />)
+				: products.map((obj) => (
+					<ProductBlock key={obj.id} itemObj={obj} />
 				))
 			}
 		</div>

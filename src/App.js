@@ -1,20 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import './scss/app.scss'
 // import products from "./assets/products.json";
+import { Route, Routes } from "react-router-dom";
 
 
-import { Header, Categories, Sort, ContentItems } from "./components";
+import { Header } from "./components";
+import { Shop, Cart, NotFound } from "./pages";
 
 function App() {
-  const [products, setProducts] = React.useState([]);
-
-  React.useEffect(() => {
-    fetch('https://64493955b88a78a8f0016922.mockapi.io/products')
-      .then((res) => res.json())
-      .then((arr) => {
-        setProducts(arr)
-      })
-  }, []);
 
   return (
     <div className="App">
@@ -22,13 +15,11 @@ function App() {
         <Header />
         <div className="container">
           <div className="content">
-            <div className="page__shop">
-              <div className="content__top">
-                <Categories />
-                <Sort />
-              </div>
-              <ContentItems products={products} />
-            </div>
+            <Routes>
+              <Route path='/' element={<Shop />} />
+              <Route path='cart' element={<Cart />} />
+              <Route path='*' element={<NotFound />} />
+            </Routes  >
           </div>
           <div className="sidebar ">
             <ul className="price-list ">
