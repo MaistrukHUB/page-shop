@@ -1,16 +1,22 @@
 @import '../variables.scss';
 
 .product-block {
-  width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 270px;
   text-align: center;
-  margin-bottom: 65px;
+  margin-bottom: 75px;
+
 
   &:not(:nth-of-type(4n)) {
-    margin-right: 35px;
+    // margin-right: 35px;
   }
 
   &__image {
     width: 260px;
+    height: 260px;
+    margin-bottom: 10px;
   }
 
   &__title {
@@ -31,14 +37,15 @@
     ul {
       display: flex;
       flex: 1;
-
+      justify-content: center;
 
       li {
         padding: 8px;
         flex: 1;
+        max-width: 80px;
         cursor: pointer;
         font-weight: 600;
-        font-size: 14px;
+        font-size: 12px;
         @include noselect();
         &.active {
           color: #f3f3f3;
@@ -61,7 +68,7 @@
 
   &__price {
     font-weight: bold;
-    font-size: 22px;
+    font-size: 18px;
     line-height: 27px;
     letter-spacing: 0.015em;
   }

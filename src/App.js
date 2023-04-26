@@ -1,12 +1,13 @@
 import React from "react";
 import './scss/app.scss'
+import products from "./assets/products.json";
+
 
 import { Header, Categories, Sort, ContentItems } from "./components";
 
 function App() {
   return (
     <div className="App">
-
       <div className="wrapper">
         <Header />
         <div className="container">
@@ -16,7 +17,7 @@ function App() {
                 <Categories />
                 <Sort />
               </div>
-              <ContentItems />
+              <ContentItems products={products} />
             </div>
           </div>
           <div className="sidebar ">

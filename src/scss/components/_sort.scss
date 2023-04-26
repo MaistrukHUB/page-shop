@@ -11,10 +11,12 @@
     }
 
     b {
+      font-size: 14px;
       margin-right: 8px;
     }
 
     span {
+      font-size: 13px;
       color: $burgundy;
       border-bottom: 1px dashed $burgundy;
       cursor: pointer;
@@ -33,6 +35,7 @@
     width: 160px;
 
     ul {
+      font-size: 13px;
       overflow: hidden;
       li {
         padding: 12px 20px;

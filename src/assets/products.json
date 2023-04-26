@@ -1,0 +1,266 @@
+[
+	{
+		"id": "0",
+		"name": "Uppercut Deluxe Matt Pomade",
+		"cost": [
+			600,
+			700,
+			800
+		],
+		"type": "UppercutMattPomade",
+		"extent": [
+			100,
+			200,
+			300
+		],
+		"about": "Любите невимушені та природні укладки? Тоді вам підійде Uppercut Deluxe Easy Hold. Легкий крем підкреслює текстуру волосся, підтримує об’єм та довершує зачіску натуральним матовим фінішем. Він підходить для всіх типів волосся, але найкраще виглядає на тонкому й кучерявому. Завдяки формулі на водній основі засіб непомітний на волоссі та легко змивається водою.",
+		"for": "hair",
+		"img": [
+			"https://u.makeup.com.ua/c/ch/chrm24pgv1nv.jpg",
+			"https://f.ua/statik/images/products/400x600/uppercut_deluxe/uppercut_matt_pomade_100_815049025330_955891563767.jpg"
+		]
+	},
+	{
+		"id": "2",
+		"name": "Uppercut Deluxe Barbers Easy Hold",
+		"cost": [
+			600,
+			700,
+			800
+		],
+		"type": "UppercutEasyHold",
+		"extent": [
+			100,
+			200,
+			300
+		],
+		"about": "Любите невимушені та природні укладки? Тоді вам підійде Uppercut Deluxe Easy Hold. Легкий крем підкреслює текстуру волосся, підтримує об’єм та довершує зачіску натуральним матовим фінішем. Він підходить для всіх типів волосся, але найкраще виглядає на тонкому й кучерявому. Завдяки формулі на водній основі засіб непомітний на волоссі та легко змивається водою.",
+		"for": "hair",
+		"img": [
+			"https://u.makeup.com.ua/b/b4/b4nuxzvigx8z.jpg",
+			"https://pwa-api.eva.ua/img/512/512/resize/6/1/619734_1_1617270738.jpg"
+		]
+	},
+	{
+		"id": "3",
+		"name": "Uppercut Deluxe Pomade",
+		"cost": [
+			600,
+			700,
+			800
+		],
+		"type": "UppercutDeluxePomade",
+		"extent": [
+			100,
+			200,
+			300
+		],
+		"about": "Uppercut Deluxe Pomade — бестселер легендарного австралійського бренду. Помада дає змогу оформити акуратну зачіску в стилі помпадур, забезпечує максимальний блиск і сильну фіксацію без жорсткості. Помада чудово працює на тонкому та густому волоссі короткої або середньої довжини з будь-якою текстурою. Засіб має водну основу й легко розчиняється під час миття голови.",
+		"for": "hair",
+		"img": [
+			"https://u.makeup.com.ua/7/7n/7njrz0u8p2fp.jpg",
+			"https://pwa-api.eva.ua/img/512/512/resize/6/1/619730_1_1617270137.jpg"
+		]
+	},
+	{
+		"id": "4",
+		"name": "Uppercut Deluxe Beard Oil",
+		"cost": [
+			600,
+			700,
+			800
+		],
+		"type": "UppercutDeluxeBeardOil",
+		"extent": [
+			100,
+			200,
+			300
+		],
+		"about": "Подаруйте вашій бороді м'якість і доглянутий вигляд, а шкірі тривалий комфорт з олією для бороди професійного австралійського бренду Uppercut Deluxe. Завдяки полегшеній консистенції засіб легко наносити, він створює ультра тонке невагоме покриття. Має приємний аромат пачулів і натуральної шкіри. Піпетка-дозатор дозволяє регулювати необхідну кількість засобу.",
+		"for": "beard",
+		"img": [
+			"https://pwa-api.eva.ua/img/512/512/resize/6/1/616321_1_1646746334.jpg",
+			"https://cdn.shopify.com/s/files/1/0351/3391/5269/products/BunD25_1800x1800.jpg?v=1623047318"
+		]
+	},
+	{
+		"id": "5",
+		"name": "Uppercut Deluxe Styling Powder",
+		"cost": [
+			600,
+			700,
+			800
+		],
+		"type": "UppercutDeluxeStylingPowder",
+		"extent": [
+			100,
+			200,
+			300
+		],
+		"about": "Uppercut Deluxe Styling Powder — чудове рішення для швидкого вкладання волосся на щодень. пудра чудово фіксує об’єм і підкреслює текстуру зачіски без обтяження. Її легко наносити, вона має натуральний еластичний фініш, а рівень фіксації залежить від кількості нанесеного засобу. Цей продукт підходить для всіх зачісок, але найкраще виглядає на тонкому волоссі короткої та середньої довжини.",
+		"for": "hair",
+		"img": [
+			"https://pwa-api.eva.ua/img/512/512/resize/6/1/619742_1_1617266659.jpg",
+			"https://cdn.shopify.com/s/files/1/0351/3391/5269/products/SP-6_720x.jpg?v=1669247588"
+		]
+	},
+	{
+		"id": "6",
+		"name": "Uppercut Deluxe Beard Balm,",
+		"cost": [
+			600,
+			700,
+			800
+		],
+		"type": "UUppercutDeluxeBeardBalm",
+		"extent": [
+			100,
+			200,
+			300
+		],
+		"about": "Зволоження і пом’якшення — з чоловічим бальзамом для бороди австралійського бренду Uppercut Deluxe!",
+		"for": "beard",
+		"img": [
+			"https://cdn.shopify.com/s/files/1/0351/3391/5269/products/BB-2021-Web_720x.jpg?v=1643842176",
+			"https://cdn.shopify.com/s/files/1/0351/3391/5269/products/BunD20_720x.jpg?v=1643842195"
+		]
+	},
+	{
+		"id": "7",
+		"name": "Xflex Loud Matte Paste",
+		"cost": [
+			600
+		],
+		"type": "UppercutDeluxeBeardOil",
+		"extent": [
+			100
+		],
+		"about": "матова паста для волосся LOUD MATTE PASTE від італійського бренду Xflex універсальна у використанні завдяки вдалій формулі продукту. Легка та водночас стійка структура засобу дозволяють ремоделювати зачіску протягом всього дня.",
+		"for": "hair",
+		"img": [
+			"https://forbarber.com/content/images/14/390x390l80mc0/testtproduct387533332-277980330051-loud-matte-paste-28111757227270.webp",
+			"https://content2.rozetka.com.ua/goods/images/big/302289525.jpg"
+		]
+	},
+	{
+		"id": "8",
+		"name": "Proraso Sandalwood After Shave Lotion",
+		"cost": [
+			300
+		],
+		"type": "ProrasoSandalwoodAfterShaveLotion",
+		"extent": [
+			100
+		],
+		"about": "Якщо шкіру після гоління не заспокоїти, подразнення не змусять себе чекати. Живильний лосьйон Proraso — гідне завершення щоденного ритуалу! Формула на 97 % складається з натуральних компонентів. Не містить силіконів, парабенів, шкідливих сульфатів і інгредієнтів тваринного походження.",
+		"for": "Shave",
+		"img": [
+			"https://pwa-api.eva.ua/img/512/512/resize/5/7/579944_1_1618831369.jpg",
+			"https://pwa-api.eva.ua/img/512/512/resize/5/7/579944_2_1618831370.jpg"
+		]
+	},
+	{
+		"id": "9",
+		"name": "Proraso After Shave Lotion",
+		"cost": [
+			300
+		],
+		"type": "ProrasoAfterShaveLotion",
+		"extent": [
+			100
+		],
+		"about": "Хочете бадьоро почати ранок? Тоді завершуйте процес гоління з освіжним і тонізувальним лосьйоном після гоління! Шкіра обличчя швидко відновиться, а приємний аромат збадьорить та освіжить.",
+		"for": "Shave",
+		"img": [
+			"https://pwa-api.eva.ua/img/512/512/resize/5/7/579964_1_1618832019.jpg",
+			"https://pwa-api.eva.ua/img/512/512/resize/5/7/579964_2_1618832020.jpg"
+		]
+	},
+	{
+		"id": "10",
+		"name": "Proraso After Shave Balm",
+		"cost": [
+			300
+		],
+		"type": "Proraso After Shave Balm",
+		"extent": [
+			100
+		],
+		"about": "Бальзам Proraso з екстрактом зеленого чаю і вівса — миттєве заспокоєння чутливої шкіри після гоління! Не містить парабенів, шкідливих сульфатів, мінеральних олій, штучних барвників, силіконів і інгредієнтів тваринного походження.",
+		"for": "Shave",
+		"img": [
+			"https://pwa-api.eva.ua/img/512/512/resize/5/7/579977_1_1618832042.jpg",
+			"https://pwa-api.eva.ua/img/512/512/resize/5/7/579977_2_1618832042.jpg"
+		]
+	},
+	{
+		"id": "11",
+		"name": "Подарунковий сертифікат на 500",
+		"cost": [
+			500
+		],
+		"type": "certificate",
+		"about": "Подарунковий сертифікат на Н-у суму, бла бла бла бла",
+		"for": "sale",
+		"img": [
+			"https://streetwear.com.ua/img/p/full/250/1000250a.jpg",
+			"https://streetwear.com.ua/img/p/full/250/1000250a.jpg"
+		]
+	},
+	{
+		"id": "12",
+		"name": "Подарунковий сертифікат на 1000",
+		"cost": [
+			1000
+		],
+		"type": "certificate",
+		"about": "Подарунковий сертифікат на Н-у суму, бла бла бла бла",
+		"for": "sale",
+		"img": [
+			"https://streetwear.com.ua/img/p/full/250/1000250a.jpg",
+			"https://streetwear.com.ua/img/p/full/250/1000250a.jpg"
+		]
+	},
+	{
+		"id": "13",
+		"name": "Подарунковий сертифікат на 1500",
+		"cost": [
+			1500
+		],
+		"type": "certificate",
+		"about": "Подарунковий сертифікат на Н-у суму, бла бла бла бла",
+		"for": "sale",
+		"img": [
+			"https://streetwear.com.ua/img/p/full/250/1000250a.jpg",
+			"https://streetwear.com.ua/img/p/full/250/1000250a.jpg"
+		]
+	},
+	{
+		"id": "14",
+		"name": "абонемент на пів року '-15%'",
+		"cost": [
+			2000
+		],
+		"type": "ticket",
+		"about": "абонемент економить вам  Н-у суму, бла бла бла бла",
+		"for": "sale",
+		"img": [
+			"https://streetwear.com.ua/img/p/full/250/1000250a.jpg",
+			"https://streetwear.com.ua/img/p/full/250/1000250a.jpg"
+		]
+	},
+	{
+		"id": "15",
+		"name": "абонемент на пів року '-17%'",
+		"cost": [
+			4000
+		],
+		"type": "ticket",
+		"about": "абонемент економить вам  Н-у суму, бла бла бла бла",
+		"for": "sale",
+		"img": [
+			"https://streetwear.com.ua/img/p/full/250/1000250a.jpg",
+			"https://streetwear.com.ua/img/p/full/250/1000250a.jpg"
+		]
+	}
+]

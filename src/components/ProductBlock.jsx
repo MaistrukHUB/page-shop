@@ -1,23 +1,46 @@
 import React from 'react';
 
-const ProductBlock = () => {
+
+const ProductBlock = ({ itemObj }) => {
+	const [productCount, setProductCount] = React.useState(0);
+	const [selectedExtent, setSelectedExtent] = React.useState(0);
+
+	const productAdd = () => {
+		setProductCount(productCount + 1)
+	}
+	const handelExtent = (index) => {
+		setSelectedExtent(index)
+	}
 	return (
 		<div className="product-block">
 			<img
 				className="product-block__image"
-				src="https://u.makeup.com.ua/c/ch/chrm24pgv1nv.jpg"
+				src={itemObj.img[0]}
 				alt="product"
 			/>
 			<h4 className="product-block__title">Uppercut Deluxe Matt Pomade</h4>
-			<div className="product-block__selector">
-				<ul>
-					<li className="active">30 гр.</li>
-					<li>90 гр.</li>
-					<li>320 гр.</li>
-				</ul>
-			</div>
-			<div className="product-block__bottom">
-				<div className="product-block__price"> 395 ГРН</div>
+			{itemObj && itemObj.extent
+				?
+				<div className="product-block__selector">
+					<ul>
+						{
+							itemObj.extent && itemObj.extent.map((item, index) => (
+								<li
+									onClick={() => handelExtent(index)}
+									key={item}
+									className={selectedExtent === index ? 'active' : ''}>{item} гр.</li>
+							))
+						}
+
+					</ul>
+				</div>
+				: ''
+			}
+
+			<div onClick={productAdd} className="product-block__bottom">
+				<div className="product-block__price">
+					{itemObj.cost[selectedExtent]} ГРН
+				</div>
 				<div className="button button--outline button--add">
 					<svg
 						width="12"
@@ -32,7 +55,7 @@ const ProductBlock = () => {
 						/>
 					</svg>
 					<span>Додати</span>
-					<i>2</i>
+					<i>{productCount}</i>
 				</div>
 			</div>
 		</div>
@@ -40,3 +63,17 @@ const ProductBlock = () => {
 }
 
 export default ProductBlock;
+
+{/* <div className="product-block__selector">
+<ul>
+	{
+		itemObj.extent && itemObj.extent.map((item, index) => (
+			<li
+				onClick={() => handelExtent(index)}
+				key={item}
+				className={selectedExtent === index ? 'active' : ''}>{item} гр.</li>
+		))
+	}
+
+</ul>
+</div> */}
