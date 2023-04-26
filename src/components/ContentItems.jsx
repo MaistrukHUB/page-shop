@@ -1,5 +1,5 @@
 import React from 'react';
-import { ProductBlock } from "../components";
+import { ProductBlock, MyLoader } from "../components";
 
 
 const ContentItems = ({ products }) => {
@@ -8,7 +8,8 @@ const ContentItems = ({ products }) => {
 		<div className="content__items">
 			{
 				products && products.map((obj) => (
-					<ProductBlock key={obj.id} itemObj={obj} />
+					// <ProductBlock key={obj.id} itemObj={obj} />
+					<MyLoader />
 				))
 			}
 		</div>
