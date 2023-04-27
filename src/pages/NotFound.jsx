@@ -1,10 +1,11 @@
 import React from 'react';
+import { NotFoundBlock } from "../components/"
 
 const NotFound = () => {
 	return (
-		<div>
-			<span>😕</span><p>Нічого не знайдено</p>
-		</div>
+		<>
+			<NotFoundBlock />
+		</>
 	);
 }
 

@@ -1,14 +1,22 @@
 .sidebar{
 	position: absolute;
+	top: 0;
 	right: 0;
 	height: 100vh;
 	padding: 40px ;
 	width: 28%;
+	min-width: 390px;
 	display: flex;
 	flex-direction: column;
  }
 
- 
+ .sidebar.visible-shop{
+	@media (max-width:1400px) {
+		display: none;
+		
+	}
+
+ }
 
  .price-list{
 	border-left: 2px solid $black;

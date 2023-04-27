@@ -1,10 +1,8 @@
 import React from 'react';
-import { useState } from 'react';
-
 
 
 const Categories = () => {
-	const [activeIndex, setActiveIndex] = useState(0);
+	const [activeIndex, setActiveIndex] = React.useState(0);
 
 	const categories = [
 		'Для волосся',

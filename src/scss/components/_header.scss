@@ -14,6 +14,10 @@
   max-width: 1920px;
   padding: 0 70px;
 
+  @media (max-width:1070px) {
+ justify-content: center;
+  }
+
   .container {
     display: flex;
     align-items: center;
@@ -34,13 +38,29 @@
   }
   &__nav {
     margin: 0 70px;
-    width: 600px;
-    display: flex;
-    justify-content: center;
-   ul{
-    width: 100%;
     display: flex;
     justify-content: space-between;
+    transition: 0.5s;
+    @media (max-width:1070px) {
+      // display: none;
+      position: absolute;
+      margin: 0;
+      left: -1100px;
+      top: 0;
+    }
+   ul{
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    @media (max-width:1070px) {
+      font-weight: 300;
+      flex-direction: column;
+      padding: 200px 60px;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.505);
+    }
    }
  .link__nav{
   color: $black;
@@ -50,7 +70,11 @@
   position: relative;
   text-decoration: none;
   display:inline-block;
-  
+  @media (max-width:1070px) {
+    font-size: 25px;
+    margin-bottom: 20px;
+    color: #fff;
+  }
 }
 
 
@@ -93,10 +117,27 @@
     }
     
   }
+  &__nav{
+    width: 100%;
+  }
+  &__nav.opened{
+    left: 0;
+  }
   &__icons{
     display: flex;
     flex-wrap: nowrap;
+    transition: 0.2s;
+    margin-right: 50px;
+    @media (max-width:1070px) {
+    position: absolute;
+    left: 70px;
+    bottom: 100px;
+    }
+    @media (max-width:600px) {
+    }
+
     a{
+    
       display: inline-block;
       height: 18px;
       width: 18px;
@@ -105,6 +146,11 @@
       &:hover{
         transform: scale(1.2);
       }
+      @media (max-width:1070px) {
+        height: 32px;
+        width: 22px;
+        fill: #fff;
+        }
     }
     :last-child{
       margin-right: 0;
@@ -115,3 +161,69 @@
 
 
 
+
+.button-burger{
+  position: absolute;
+  left: 50px;
+  top: 25px;
+  z-index: 10;
+  display: none;
+  width: 50px;
+  height: 50px;
+  @media (max-width:1070px) {
+    display: block;
+  }
+  .menu {
+background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    padding: 0;
+  }
+  .opened{
+    background: none;
+    border: none;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .line {
+    
+    fill: none;
+    stroke: rgb(0, 0, 0);
+    stroke-width: 6;
+    transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+      stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .line1 {
+    stroke-dasharray: 60 207;
+    stroke-width: 6;
+  }
+  .line2 {
+    stroke-dasharray: 60 60;
+    stroke-width: 6;
+  }
+  .line3 {
+    stroke-dasharray: 60 207;
+    stroke-width: 6;
+  }
+  .opened .line1 {
+    stroke: rgb(255, 255, 255);
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 6;
+  }
+  .opened .line2 {
+    stroke: rgb(255, 255, 255);
+    stroke-dasharray: 1 60;
+    stroke-dashoffset: -30;
+    stroke-width: 6;
+  }
+  .opened .line3 {
+    stroke: rgb(255, 255, 255);
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 6;
+  }
+  
+}
