@@ -1,26 +1,20 @@
 import React from 'react';
-import { Categories, Sort, ContentItems, Sidebar } from "../components";
+import { Categories, Sort, ContentItems, Sidebar, Search } from "../components";
 
 
 
-const Shop = () => {
-	const [products, setProducts] = React.useState([]);
-	const [isLoading, setIsLoading] = React.useState(true);
+const Shop = ({ products, isLoading }) => {
 
 
-	React.useEffect(() => {
-		fetch('https://64493955b88a78a8f0016922.mockapi.io/products')
-			.then((res) => res.json())
-			.then((arr) => {
-				setProducts(arr)
-				setIsLoading(false)
-			})
-	}, []);
+
+
 	return (
 		<div className="page__shop">
+
 			<div className={`content__top `}>
 				<Categories />
-				<Sort />
+				{/* <Sort /> */}
+				<Search />
 			</div>
 			<ContentItems products={products} isLoading={isLoading} />
 			<Sidebar visible={'visible-shop'} />

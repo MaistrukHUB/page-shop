@@ -14,12 +14,13 @@ const ProductBlock = ({ itemObj }) => {
 	return (
 		<div className='product-block-wrapper'>
 			<div className="product-block">
+				<p>{itemObj.rating}</p>
 				<img
 					className="product-block__image"
 					src={itemObj.img[0]}
 					alt="product"
 				/>
-				<h4 className="product-block__title">Uppercut Deluxe Matt Pomade</h4>
+				<h4 className="product-block__title">{itemObj.name}</h4>
 				{itemObj && itemObj.extent
 					?
 					<div className="product-block__selector">

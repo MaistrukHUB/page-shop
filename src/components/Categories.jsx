@@ -1,18 +1,38 @@
 import React from 'react';
-
+import { useSelector, useDispatch } from 'react-redux'
+import { setCategory } from '../redux/Slices/filterSlice'
 
 const Categories = () => {
-	const [activeIndex, setActiveIndex] = React.useState(0);
+
+	const category = useSelector((state) => state.filtersSlice.selectedCategory)
+	console.log(category)
+	const dispatch = useDispatch()
 
 	const categories = [
-		'Для волосся',
-		'Для бороди',
-		'Для бриття',
-		'Сертифікати',
-		'Абонименти',
+		{
+			name: 'Всі',
+			type: ""
+		},
+		{
+			name: 'Для волосся',
+			type: "hair"
+		},
+		{
+			name: 'Для бороди',
+			type: "beard"
+		},
+		{
+			name: 'Для бриття',
+			type: "Shave"
+		},
+		{
+			name: 'Сертифікати/Абонименти',
+			type: "sale"
+		},
+
 	]
-	const onClickCategory = (index) => {
-		setActiveIndex(index)
+	const onClickCategory = (item) => {
+		dispatch(setCategory(item))
 	}
 	return (
 		<div className="categories">
@@ -20,11 +40,11 @@ const Categories = () => {
 				{
 					categories && categories.map((item, index) => (
 						<li
-							onClick={() => onClickCategory(index)}
+							onClick={() => onClickCategory(item)}
 							key={`${item}+${index}`}
-							className={activeIndex === index ? 'active' : ''}
+							className={category.name === item.name ? 'active' : ''}
 						>
-							{item}
+							{item.name}
 						</li>
 					))
 				}

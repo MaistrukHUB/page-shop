@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 const headerNav = [
 	{
 		type: '/',
@@ -23,6 +24,7 @@ const headerNav = [
 const Header = () => {
 
 	const [visibleBurger, setVisibleBurger] = React.useState('menu');
+
 	const handelMenuButton = () => {
 		if (visibleBurger === 'menu') {
 			setVisibleBurger('opened')
@@ -30,6 +32,7 @@ const Header = () => {
 		if (visibleBurger === 'opened') {
 			setVisibleBurger('menu')
 		}
+		window.scrollTo(0, 0)
 	}
 	return (
 		<header className="header">
@@ -48,6 +51,7 @@ const Header = () => {
 					<a className='header__icon face-icon' href='https://www.facebook.com/vladislav.maistruk' ><svg aria-hidden="true" focusable="false" role="presentation" className={"icon icon-facebook"} viewBox="0 0 20 20"><path fill={`#${'styleIcons'} `} d="M18.05.811q.439 0 .744.305t.305.744v16.637q0 .439-.305.744t-.744.305h-4.732v-7.221h2.415l.342-2.854h-2.757v-1.83q0-.659.293-1t1.073-.342h1.488V3.762q-.976-.098-2.171-.098-1.634 0-2.635.964t-1 2.72V9.47H7.951v2.854h2.415v7.221H1.413q-.439 0-.744-.305t-.305-.744V1.859q0-.439.305-.744T1.413.81H18.05z"></path></svg></a>
 					<Link to={'cart'} className='header__icon cart-icon' href="#"> <svg viewBox="0 0 24 24" fill={`#${'styleIcons'}`} > <path fillRule="evenodd" clipRule="evenodd" d="M10.5547 2.16806C11.0142 2.47441 11.1384 3.09528 10.8321 3.55481L7.20184 9.00012H16.7982L13.168 3.55481C12.8616 3.09528 12.9858 2.47441 13.4453 2.16806C13.9048 1.8617 14.5257 1.98588 14.8321 2.44541L19.2019 9.00014H22C22.55 9.00014 23 9.45014 23 10.0001L22.97 10.2701L20.43 19.5401C20.19 20.3801 19.42 21.0001 18.5 21.0001H5.5C4.58 21.0001 3.81 20.3801 3.58 19.5401L1.04 10.2701C1.01 10.1801 1 10.0901 1 10.0001C1 9.45014 1.45 9.00014 2 9.00014H4.79813L9.16795 2.44541C9.4743 1.98588 10.0952 1.8617 10.5547 2.16806ZM18.5 19.0001L5.51 19.0101L3.31 11.0001H20.7L18.5 19.0001Z"></path></svg></Link>
 				</div>
+
 				<ul>
 					{
 						headerNav && headerNav.map((item) => (
@@ -56,7 +60,7 @@ const Header = () => {
 								className="header__nav-item"
 								key={item.type}
 							>
-								<Link to={'/'} className='link__nav' href="#">
+								<Link to={`${item.type}`} className='link__nav' href="#">
 									{item.name}
 								</Link>
 							</li>
@@ -64,12 +68,11 @@ const Header = () => {
 					}
 				</ul>
 			</nav>
-			<a href='#' className="header__logo">
+			<Link to={`/`} className="header__logo">
 				barbershop
-			</a>
+			</Link>
 		</header >
 	);
 }
 
 export default Header;
-// "this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))"
