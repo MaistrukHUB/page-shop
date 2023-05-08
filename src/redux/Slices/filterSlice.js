@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit"
 const initialState = {
 	selectedCategory: {
 		name: 'Всі',
-		type: ""
+		categoryProperty: ""
 	},
 	selectedSort: {
 		name: 'популярності',
@@ -11,6 +11,7 @@ const initialState = {
 	},
 	searchValue: ''
 }
+
 
 //if we make slice need import this method from "@reduxjs/toolkit"
 const filterSlice = createSlice({
@@ -26,11 +27,17 @@ const filterSlice = createSlice({
 		},
 		setSearchValue(state, action) {
 			state.searchValue = action.payload
-		}
-
+		},
+		setFilters(state, action) {
+			state.selectedCategory = action.payload.category
+			state.selectedSort = action.payload.sort
+			state.searchValue = action.payload.search
+		},
 	}
 })
+
+// console.log(initialState)
 //in filterSlice.actions  are stored all actions
-export const { setCategory, setSort, setSearchValue } = filterSlice.actions
+export const { setCategory, setSort, setSearchValue, setFilters } = filterSlice.actions
 
 export default filterSlice.reducer

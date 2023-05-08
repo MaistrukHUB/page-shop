@@ -14,7 +14,6 @@ const ProductBlock = ({ itemObj }) => {
 	return (
 		<div className='product-block-wrapper'>
 			<div className="product-block">
-				<p>{itemObj.rating}</p>
 				<img
 					className="product-block__image"
 					src={itemObj.img[0]}

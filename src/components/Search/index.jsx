@@ -7,8 +7,12 @@ import { setSearchValue } from '../../redux/Slices/filterSlice'
 
 const Index = () => {
 	const dispatch = useDispatch()
-	const [value, setValue] = React.useState('');
 	const { searchValue } = useSelector((state) => state.filtersSlice)
+	const [value, setValue] = React.useState('');
+	React.useEffect(() => {
+		console.log(searchValue)
+		setValue(searchValue)
+	}, [])
 
 	const onClickClear = () => {
 		inputRef.current.focus()
@@ -18,9 +22,9 @@ const Index = () => {
 
 	const updateSearchValue = React.useCallback(
 		debounce((e) => {
-			console.log('event')
 			dispatch(setSearchValue(e.target.value))
-		}, 3000), []
+		}, 500),
+		[]
 	)
 	const onChangeInput = (e) => {
 		setValue(e.target.value);

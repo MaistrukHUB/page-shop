@@ -2,35 +2,36 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { setCategory } from '../redux/Slices/filterSlice'
 
+export const categories = [
+	{
+		name: 'Всі',
+		categoryProperty: ""
+	},
+	{
+		name: 'Для волосся',
+		categoryProperty: "hair"
+	},
+	{
+		name: 'Для бороди',
+		categoryProperty: "beard"
+	},
+	{
+		name: 'Для бриття',
+		categoryProperty: "Shave"
+	},
+	{
+		name: 'Сертифікати/Абонименти',
+		categoryProperty: "sale"
+	},
+
+]
+
 const Categories = () => {
 
 	const category = useSelector((state) => state.filtersSlice.selectedCategory)
-	console.log(category)
 	const dispatch = useDispatch()
 
-	const categories = [
-		{
-			name: 'Всі',
-			type: ""
-		},
-		{
-			name: 'Для волосся',
-			type: "hair"
-		},
-		{
-			name: 'Для бороди',
-			type: "beard"
-		},
-		{
-			name: 'Для бриття',
-			type: "Shave"
-		},
-		{
-			name: 'Сертифікати/Абонименти',
-			type: "sale"
-		},
 
-	]
 	const onClickCategory = (item) => {
 		dispatch(setCategory(item))
 	}
