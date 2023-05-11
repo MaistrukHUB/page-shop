@@ -1,16 +1,34 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux'
+import { addProduct } from "../redux/Slices/cartSlice";
 
 
 const ProductBlock = ({ itemObj }) => {
-	const [productCount, setProductCount] = React.useState(0);
+
+
+	const dispatch = useDispatch()
+	const items = useSelector(state => state.cartSlice.products.filter(obj => obj.name === itemObj.name))
+	const countItems = items.reduce((sum, obj) => {
+		return obj.count + sum
+	}, 0)
+	console.log(countItems)
 	const [selectedExtent, setSelectedExtent] = React.useState(0);
 
 	const productAdd = () => {
-		setProductCount(productCount + 1)
+		const productByCart = {
+			id: Date.now(),
+			name: itemObj.name,
+			img: itemObj.img[0],
+			cost: itemObj.cost[selectedExtent],
+			extent: itemObj.extent[selectedExtent]
+		}
+		dispatch(addProduct(productByCart))
 	}
+
 	const handelExtent = (index) => {
 		setSelectedExtent(index)
 	}
+
 	return (
 		<div className='product-block-wrapper'>
 			<div className="product-block">
@@ -20,25 +38,25 @@ const ProductBlock = ({ itemObj }) => {
 					alt="product"
 				/>
 				<h4 className="product-block__title">{itemObj.name}</h4>
-				{itemObj && itemObj.extent
+				{itemObj.extent.length > 0
 					?
 					<div className="product-block__selector">
 						<ul>
 							{
-								itemObj.extent && itemObj.extent.map((item, index) => (
+								itemObj.extent.map((item, index) => (
 									<li
 										onClick={() => handelExtent(index)}
 										key={item}
 										className={selectedExtent === index ? 'active' : ''}>{item} гр.</li>
 								))
 							}
-
 						</ul>
 					</div>
 					: ''
 				}
-
-				<div onClick={productAdd} className="product-block__bottom">
+				<div
+					onClick={productAdd}
+					className="product-block__bottom">
 					<div className="product-block__price">
 						{itemObj.cost[selectedExtent]} ГРН
 					</div>
@@ -56,7 +74,7 @@ const ProductBlock = ({ itemObj }) => {
 							/>
 						</svg>
 						<span>Додати</span>
-						<i>{productCount}</i>
+						{countItems > 0 ? <i>{countItems} </i> : ''}
 					</div>
 				</div>
 			</div>
@@ -66,17 +84,3 @@ const ProductBlock = ({ itemObj }) => {
 }
 
 export default ProductBlock;
-
-{/* <div className="product-block__selector">
-<ul>
-	{
-		itemObj.extent && itemObj.extent.map((item, index) => (
-			<li
-				onClick={() => handelExtent(index)}
-				key={item}
-				className={selectedExtent === index ? 'active' : ''}>{item} гр.</li>
-		))
-	}
-
-</ul>
-</div> */}

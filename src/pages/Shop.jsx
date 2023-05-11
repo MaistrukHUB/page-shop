@@ -21,6 +21,7 @@ const Shop = () => {
 
 	const { selectedCategory, selectedSort, searchValue } = useSelector((state) => state.filtersSlice)
 
+	// якщо був перший ренднр перевіряємо URL-параметри і зберігаємо їх
 	React.useEffect(() => {
 		if (window.location.search) {
 			const parseNavigate = qs.parse(window.location.search.substring(1))
@@ -29,7 +30,6 @@ const Shop = () => {
 				sort: sorts.find(obj => obj.sortProperty === parseNavigate.sortProperty),
 				search: parseNavigate.searchValue
 			}
-
 			dispatch(setFilters({
 				...params
 			})
@@ -38,24 +38,16 @@ const Shop = () => {
 		}
 	}, [])
 
-	const fetchProducts = () => {
+	//Функція яка робить запит до беку та витягує продукти
+	const fetchProducts = async () => {
 		setIsLoading(true)
-		axios
-			.get(`https://64493955b88a78a8f0016922.mockapi.io/products?sortBy=${selectedSort.sortProperty}.[0]&order=desc&filter=${selectedCategory.categoryProperty}&search=${searchValue}`)
-			.then(res => {
-				setProducts(res.data)
-				setIsLoading(false)
-			})
+		const res = await axios.get(`https://64493955b88a78a8f0016922.mockapi.io/products?sortBy=${selectedSort.sortProperty}.[0]&order=desc&filter=${selectedCategory.categoryProperty}&search=${searchValue}`)
+		setProducts(res.data)
+		setIsLoading(false)
 	}
 
-	React.useEffect(() => {
-		window.scrollTo(0, 0)
-		if (!isParams.current) {
-			fetchProducts()
-		}
-		isParams.current = false
-	}, [selectedCategory, selectedSort, searchValue]);
 
+	// відповідає за те щоб при першому рендері не вшивати в силку парамерти-URL
 	React.useEffect(() => {
 		if (isMounted.current) {
 			const queryString = qs.stringify({
@@ -68,6 +60,13 @@ const Shop = () => {
 		isMounted.current = true
 	}, [selectedCategory, selectedSort, searchValue])
 
+	React.useEffect(() => {
+		window.scrollTo(0, 0)
+		if (!isParams.current) {
+			fetchProducts()
+		}
+		isParams.current = false
+	}, [selectedCategory, selectedSort, searchValue]);
 
 	return (
 		<div className="page__shop">

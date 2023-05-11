@@ -135,6 +135,19 @@
     flex-wrap: nowrap;
     transition: 0.2s;
     margin-right: 50px;
+    .cart-icon{
+      position: relative;
+      span{
+        font-size: 14px;
+        color:$black;
+        position: absolute;
+        right: -18px;
+        top: -10px;
+        @media (max-width:1070px) {
+        color: #fff;
+          }
+      }
+    }
     @media (max-width:1070px) {
     position: absolute;
     right: 0;

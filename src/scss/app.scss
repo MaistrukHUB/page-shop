@@ -19,8 +19,11 @@ body {
 .content {
   background-color: #fff;
   padding-top: 30px;
-
+  margin-left: 30px;
   width: 70%;
+  @media (max-width: 1400px) {
+    margin-left: 0;
+  }
   &__title {
     margin: 35px 0;
   }
@@ -94,10 +97,15 @@ body {
 }
 
 .cart {
+  width:800px;
+  display: flex;
+  flex-direction: column;
   &__top {
+    margin-top: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    svg{}
   }
 
   .content__title {
@@ -264,7 +272,7 @@ body {
 
         &:last-of-type {
           b {
-            color: $orange;
+            color: $burgundy;
           }
         }
       }
@@ -279,7 +287,7 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 210px;
+        width: 230px;
 
         border-color: darken($color: $gray-line, $amount: 10);
 
@@ -308,6 +316,9 @@ body {
       }
 
       .pay-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         font-size: 16px;
         font-weight: 600;
         width: 210px;
@@ -318,6 +329,7 @@ body {
 
   &--empty {
     margin: 0 auto;
+    margin-top: 30px;
     width: 560px;
     text-align: center;
 
@@ -345,6 +357,9 @@ body {
     }
 
     .button--black {
+      display:flex;
+      align-items: center;
+      justify-content: center;
       padding: 12px 0 14px;
       width: 230px;
       margin: 0 auto;
