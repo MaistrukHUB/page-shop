@@ -6,6 +6,7 @@ import { sorts } from "../components/Sort";
 import { useSelector, useDispatch } from 'react-redux'
 import qs from 'qs'
 import { setFilters } from "../redux/Slices/filterSlice";
+import { fetchProducts } from "../redux/Slices/productsSlice";
 import { useNavigate } from "react-router-dom";
 
 const Shop = () => {
@@ -16,10 +17,12 @@ const Shop = () => {
 	const isParams = React.useRef(false)
 	const isMounted = React.useRef(false)
 
-	const [products, setProducts] = React.useState([]);
+	// const [products, setProducts] = React.useState([]);
 	const [isLoading, setIsLoading] = React.useState(true);
 
 	const { selectedCategory, selectedSort, searchValue } = useSelector((state) => state.filtersSlice)
+	const { products } = useSelector((state) => state.productsSlice)
+
 
 	// якщо був перший ренднр перевіряємо URL-параметри і зберігаємо їх
 	React.useEffect(() => {
@@ -37,13 +40,22 @@ const Shop = () => {
 			isParams.current = true
 		}
 	}, [])
-
+	// console.log()
 	//Функція яка робить запит до беку та витягує продукти
-	const fetchProducts = async () => {
+	const getProducts = async () => {
 		setIsLoading(true)
-		const res = await axios.get(`https://64493955b88a78a8f0016922.mockapi.io/products?sortBy=${selectedSort.sortProperty}.[0]&order=desc&filter=${selectedCategory.categoryProperty}&search=${searchValue}`)
-		setProducts(res.data)
-		setIsLoading(false)
+		try {
+			dispatch(fetchProducts({
+				selectedCategory,
+				selectedSort,
+				searchValue
+			}))
+			setIsLoading(false)
+		} catch (error) {
+			console.log(error)
+		} finally {
+			setIsLoading(false)
+		}
 	}
 
 
@@ -63,7 +75,7 @@ const Shop = () => {
 	React.useEffect(() => {
 		window.scrollTo(0, 0)
 		if (!isParams.current) {
-			fetchProducts()
+			getProducts()
 		}
 		isParams.current = false
 	}, [selectedCategory, selectedSort, searchValue]);
