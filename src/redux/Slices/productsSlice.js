@@ -31,8 +31,17 @@ const productsSlice = createSlice({
 		},
 	},
 	extraReducers: {
+		[fetchProducts.pending]: (state, action) => {
+			state.products = action.payload
+			//триває запит
+		},
 		[fetchProducts.fulfilled]: (state, action) => {
 			state.products = action.payload
+			// запит успішний
+		},
+		[fetchProducts.rejected]: (state, action) => {
+			state.products = action.payload
+			// трапилась помилка
 		}
 	}
 })
