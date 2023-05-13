@@ -21,7 +21,7 @@ const Shop = () => {
 	// const [isLoading, setIsLoading] = React.useState(true);
 
 	const { selectedCategory, selectedSort, searchValue } = useSelector((state) => state.filtersSlice)
-	const { products } = useSelector((state) => state.productsSlice)
+	const { products, status } = useSelector((state) => state.productsSlice)
 
 
 	// якщо був перший ренднр перевіряємо URL-параметри і зберігаємо їх
@@ -43,19 +43,12 @@ const Shop = () => {
 	// console.log()
 	//Функція яка робить запит до беку та витягує продукти
 	const getProducts = async () => {
-		setIsLoading(true)
-		try {
-			dispatch(fetchProducts({
-				selectedCategory,
-				selectedSort,
-				searchValue
-			}))
-			setIsLoading(false)
-		} catch (error) {
-			console.log(error)
-		} finally {
-			setIsLoading(false)
-		}
+		// setIsLoading(true)
+		dispatch(fetchProducts({
+			selectedCategory,
+			selectedSort,
+			searchValue
+		}))
 	}
 
 
@@ -88,7 +81,7 @@ const Shop = () => {
 				{/* <Sort /> */}
 				<Search />
 			</div>
-			<ContentItems products={products} isLoading={isLoading} />
+			<ContentItems products={products} status={status} />
 			{/* <Sidebar visible={'visible-shop'} /> */}
 		</div>
 	);

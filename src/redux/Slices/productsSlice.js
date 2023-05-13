@@ -33,16 +33,17 @@ const productsSlice = createSlice({
 	},
 	extraReducers: {
 		[fetchProducts.pending]: (state, action) => {
+			state.products = []
 			state.status = 'loading'
 			//триває запит
 		},
 		[fetchProducts.fulfilled]: (state, action) => {
 			state.products = action.payload
-			console.log('ful')
-
+			state.status = 'success'
 			// запит успішний
 		},
 		[fetchProducts.rejected]: (state, action) => {
+			state.products = []
 			state.status = 'error'
 			// трапилась помилка
 		}
