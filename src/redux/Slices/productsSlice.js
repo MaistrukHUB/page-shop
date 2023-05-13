@@ -16,7 +16,8 @@ export const fetchProducts = createAsyncThunk(
 )
 
 const initialState = {
-	products: []
+	products: [],
+	status: 'loading',
 }
 
 
@@ -32,15 +33,17 @@ const productsSlice = createSlice({
 	},
 	extraReducers: {
 		[fetchProducts.pending]: (state, action) => {
-			state.products = action.payload
+			state.status = 'loading'
 			//триває запит
 		},
 		[fetchProducts.fulfilled]: (state, action) => {
 			state.products = action.payload
+			console.log('ful')
+
 			// запит успішний
 		},
 		[fetchProducts.rejected]: (state, action) => {
-			state.products = action.payload
+			state.status = 'error'
 			// трапилась помилка
 		}
 	}

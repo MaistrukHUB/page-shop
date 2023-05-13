@@ -18,7 +18,7 @@ const Shop = () => {
 	const isMounted = React.useRef(false)
 
 	// const [products, setProducts] = React.useState([]);
-	const [isLoading, setIsLoading] = React.useState(true);
+	// const [isLoading, setIsLoading] = React.useState(true);
 
 	const { selectedCategory, selectedSort, searchValue } = useSelector((state) => state.filtersSlice)
 	const { products } = useSelector((state) => state.productsSlice)

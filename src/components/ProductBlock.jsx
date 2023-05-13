@@ -11,7 +11,6 @@ const ProductBlock = ({ itemObj }) => {
 	const countItems = items.reduce((sum, obj) => {
 		return obj.count + sum
 	}, 0)
-	console.log(countItems)
 	const [selectedExtent, setSelectedExtent] = React.useState(0);
 
 	const productAdd = () => {
