@@ -21,6 +21,7 @@ const Shop = () => {
 
 	const { selectedCategory, selectedSort, searchValue } = useSelector(selectFilters)
 	const { products, status } = useSelector(selectProducts)
+	console.log(status)
 
 
 	// якщо був перший ренднр перевіряємо URL-параметри і зберігаємо їх

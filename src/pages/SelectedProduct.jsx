@@ -1,7 +1,8 @@
 
 import { Link, useParams } from 'react-router-dom';
 import axios from "axios";
-import LoaderSelectedProduct from "../components/LoaderSelectedProduct";
+import { LoaderSelectedProduct, ErrorBlock } from "../components";
+import { NotFound } from "../pages";
 import { useSelector, useDispatch } from 'react-redux'
 import { addProduct } from "../redux/Slices/cartSlice";
 
@@ -16,6 +17,7 @@ const SelectedProduct = () => {
 
 	const [product, setProduct] = React.useState('');
 	const [error, setError] = React.useState();
+	const [isLoading, setIsLoading] = React.useState(false);
 	const [selectedExtent, setSelectedExtent] = React.useState(0);
 
 	const items = useSelector(state => state.cartSlice.products.filter(obj => obj.name === product.name))
@@ -43,8 +45,9 @@ const SelectedProduct = () => {
 		async function fetchProduct(params) {
 			try {
 				const { data } = await axios.get("https://64493955b88a78a8f0016922.mockapi.io/products/" + id)
+
 				setProduct(data)
-				setError(false)
+				setIsLoading(true)
 				window.scrollTo(0, 0)
 			} catch (error) {
 				setError(true)
@@ -53,7 +56,12 @@ const SelectedProduct = () => {
 		fetchProduct()
 	}, []);
 
-	if (error === false) {
+	if (error === true) {
+		return (
+			<ErrorBlock />
+		)
+	}
+	if (isLoading === true) {
 		return (
 			<div className={'pages-product'}>
 				<div className="pages-product__cart">
@@ -109,9 +117,9 @@ const SelectedProduct = () => {
 					</div>
 				</div >
 			</div >
-		);
+		)
 	}
-	else {
+	if (isLoading === false) {
 		return (
 			<LoaderSelectedProduct />
 		)

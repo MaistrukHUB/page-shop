@@ -1,6 +1,5 @@
 import React from 'react';
-import { ProductBlock, MyLoader } from "../components";
-import error from "../assets/img/error-404.png";
+import { ProductBlock, MyLoader, ErrorBlock } from "../components";
 
 
 const ContentItems = ({ products, status }) => {
@@ -9,11 +8,7 @@ const ContentItems = ({ products, status }) => {
 		<>
 			{status === 'error'
 				?
-				<div className='error404'>
-					<img src={error} alt="error404" />
-					<p>Нажаль трапилась помилка, не вдалося отримати продукти.</p><br />
-					<p>Спробуйте пізніше.</p>
-				</div>
+				<ErrorBlock />
 				:
 				<div className="content__items">
 					{status === 'loading'

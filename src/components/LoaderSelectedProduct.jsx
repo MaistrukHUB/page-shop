@@ -3,8 +3,8 @@ import ContentLoader from 'react-content-loader'
 
 const LoaderSelectedProduct = props => (
 	<ContentLoader
-		width={1000}
-		height={700}
+		width={1200}
+		height={1000}
 		viewBox="0 0 700 300"
 		backgroundColor="#f5f5f5"
 		foregroundColor="#dbdbdb"
