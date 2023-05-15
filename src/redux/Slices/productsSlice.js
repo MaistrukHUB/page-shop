@@ -4,13 +4,12 @@ import axios from "axios";
 
 export const fetchProducts = createAsyncThunk(
 	'products/fetchProducts',
-	async (params) => {
+	async (params, thunkApi) => {
 		const {
 			selectedCategory,
-			selectedSort,
 			searchValue
 		} = params
-		const { data } = await axios.get(`https://64493955b88a78a8f0016922.mockapi.io/products?sortBy=${selectedSort.sortProperty}.[0]&order=desc&filter=${selectedCategory.categoryProperty}&search=${searchValue}`)
+		const { data } = await axios.get(`https://64493955b88a78a8f0016922.mockapi.io/products?sortBy=.[0]&order=desc&filter=${selectedCategory.categoryProperty}&search=${searchValue}`)
 		return data
 	}
 )
@@ -50,7 +49,9 @@ const productsSlice = createSlice({
 	}
 })
 
-// console.log(initialState)
+//select so as not to repeat the code
+export const selectProducts = (state) => state.productsSlice
+
 //in filterSlice.actions  are stored all actions
 export const { setProducts } = productsSlice.actions
 

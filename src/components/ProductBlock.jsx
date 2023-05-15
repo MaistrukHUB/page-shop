@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { addProduct } from "../redux/Slices/cartSlice";
+import { Link } from 'react-router-dom';
 
 
 const ProductBlock = ({ itemObj }) => {
@@ -31,11 +32,13 @@ const ProductBlock = ({ itemObj }) => {
 	return (
 		<div className='product-block-wrapper'>
 			<div className="product-block">
-				<img
-					className="product-block__image"
-					src={itemObj.img[0]}
-					alt="product"
-				/>
+				<Link to={`/product/${itemObj.id}`}>
+					<img
+						className="product-block__image"
+						src={itemObj.img[0]}
+						alt="product"
+					/></Link>
+
 				<h4 className="product-block__title">{itemObj.name}</h4>
 				{itemObj.extent.length > 0
 					?

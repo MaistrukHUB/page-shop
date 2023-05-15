@@ -22,7 +22,7 @@
 		]
 	},
 	{
-		"id": "2",
+		"id": "1",
 		"name": "Uppercut Deluxe Barbers Easy Hold",
 		"rating": "9",
 		"cost": [
@@ -44,7 +44,7 @@
 		]
 	},
 	{
-		"id": "3",
+		"id": "2",
 		"name": "Uppercut Deluxe Pomade",
 		"rating": "7",
 		"cost": [
@@ -66,7 +66,7 @@
 		]
 	},
 	{
-		"id": "4",
+		"id": "3",
 		"name": "Uppercut Deluxe Beard Oil",
 		"rating": "7",
 		"cost": [
@@ -88,7 +88,7 @@
 		]
 	},
 	{
-		"id": "5",
+		"id": "4",
 		"name": "Uppercut Deluxe Styling Powder",
 		"rating": "9",
 		"cost": [
@@ -110,8 +110,8 @@
 		]
 	},
 	{
-		"id": "6",
-		"name": "Uppercut Deluxe Beard Balm,",
+		"id": "5",
+		"name": "Uppercut Deluxe Beard Balm",
 		"rating": "7",
 		"cost": [
 			600,
@@ -132,7 +132,7 @@
 		]
 	},
 	{
-		"id": "7",
+		"id": "6",
 		"name": "Xflex Loud Matte Paste",
 		"rating": "8",
 		"cost": [
@@ -150,7 +150,7 @@
 		]
 	},
 	{
-		"id": "8",
+		"id": "7",
 		"name": "Proraso Sandalwood After Shave Lotion",
 		"rating": "10",
 		"cost": [
@@ -168,7 +168,7 @@
 		]
 	},
 	{
-		"id": "9",
+		"id": "8",
 		"name": "Proraso After Shave Lotion",
 		"rating": "6",
 		"cost": [
@@ -186,7 +186,7 @@
 		]
 	},
 	{
-		"id": "10",
+		"id": "9",
 		"name": "Proraso After Shave Balm",
 		"rating": "10",
 		"cost": [
@@ -204,12 +204,29 @@
 		]
 	},
 	{
-		"id": "11",
+		"id": "10",
 		"name": "Подарунковий сертифікат на 500",
 		"rating": "7",
 		"cost": [
 			500
 		],
+		"extent": [],
+		"type": "certificate",
+		"about": "Подарунковий сертифікат на Н-у суму, бла бла бла бла",
+		"category": "sale",
+		"img": [
+			"https://streetwear.com.ua/img/p/full/250/1000250a.jpg",
+			"https://streetwear.com.ua/img/p/full/250/1000250a.jpg"
+		]
+	},
+	{
+		"id": "11",
+		"name": "Подарунковий сертифікат на 1000",
+		"rating": "4",
+		"cost": [
+			1000
+		],
+		"extent": [],
 		"type": "certificate",
 		"about": "Подарунковий сертифікат на Н-у суму, бла бла бла бла",
 		"category": "sale",
@@ -220,11 +237,12 @@
 	},
 	{
 		"id": "12",
-		"name": "Подарунковий сертифікат на 1000",
+		"name": "Подарунковий сертифікат на 1500",
 		"rating": "4",
 		"cost": [
-			1000
+			1500
 		],
+		"extent": [],
 		"type": "certificate",
 		"about": "Подарунковий сертифікат на Н-у суму, бла бла бла бла",
 		"category": "sale",
@@ -235,26 +253,12 @@
 	},
 	{
 		"id": "13",
-		"name": "Подарунковий сертифікат на 1500",
-		"rating": "4",
-		"cost": [
-			1500
-		],
-		"type": "certificate",
-		"about": "Подарунковий сертифікат на Н-у суму, бла бла бла бла",
-		"category": "sale",
-		"img": [
-			"https://streetwear.com.ua/img/p/full/250/1000250a.jpg",
-			"https://streetwear.com.ua/img/p/full/250/1000250a.jpg"
-		]
-	},
-	{
-		"id": "14",
 		"name": "абонемент на пів року '-15%'",
 		"rating": "4",
 		"cost": [
 			2000
 		],
+		"extent": [],
 		"type": "ticket",
 		"about": "абонемент економить вам  Н-у суму, бла бла бла бла",
 		"category": "sale",
@@ -264,12 +268,13 @@
 		]
 	},
 	{
-		"id": "15",
+		"id": "14",
 		"name": "абонемент на пів року '-17%'",
 		"rating": "4",
 		"cost": [
 			4000
 		],
+		"extent": [],
 		"type": "ticket",
 		"about": "абонемент економить вам  Н-у суму, бла бла бла бла",
 		"category": "sale",

@@ -5,10 +5,6 @@ const initialState = {
 		name: 'Всі',
 		categoryProperty: ""
 	},
-	selectedSort: {
-		name: 'популярності',
-		sortProperty: 'cost'
-	},
 	searchValue: ''
 }
 
@@ -22,22 +18,22 @@ const filterSlice = createSlice({
 		setCategory(state, action) {
 			state.selectedCategory = action.payload
 		},
-		setSort(state, action) {
-			state.selectedSort = action.payload
-		},
 		setSearchValue(state, action) {
 			state.searchValue = action.payload
 		},
 		setFilters(state, action) {
 			state.selectedCategory = action.payload.category
-			state.selectedSort = action.payload.sort
 			state.searchValue = action.payload.search
 		},
 	}
 })
 
-// console.log(initialState)
+
+//select so as not to repeat the code
+export const selectFilters = (state) => state.filtersSlice
+export const selectFiltersCategory = (state) => state.filtersSlice.selectedCategory
+
 //in filterSlice.actions  are stored all actions
-export const { setCategory, setSort, setSearchValue, setFilters } = filterSlice.actions
+export const { setCategory, setSearchValue, setFilters } = filterSlice.actions
 
 export default filterSlice.reducer

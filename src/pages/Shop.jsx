@@ -2,11 +2,10 @@ import React from 'react';
 import { Categories, ContentItems, Search } from "../components";
 import axios from "axios";
 import { categories } from "../components/Categories";
-import { sorts } from "../components/Sort";
 import { useSelector, useDispatch } from 'react-redux'
 import qs from 'qs'
-import { setFilters } from "../redux/Slices/filterSlice";
-import { fetchProducts } from "../redux/Slices/productsSlice";
+import { selectFilters, setFilters } from "../redux/Slices/filterSlice";
+import { fetchProducts, selectProducts } from "../redux/Slices/productsSlice";
 import { useNavigate } from "react-router-dom";
 
 const Shop = () => {
@@ -20,8 +19,8 @@ const Shop = () => {
 	// const [products, setProducts] = React.useState([]);
 	// const [isLoading, setIsLoading] = React.useState(true);
 
-	const { selectedCategory, selectedSort, searchValue } = useSelector((state) => state.filtersSlice)
-	const { products, status } = useSelector((state) => state.productsSlice)
+	const { selectedCategory, selectedSort, searchValue } = useSelector(selectFilters)
+	const { products, status } = useSelector(selectProducts)
 
 
 	// якщо був перший ренднр перевіряємо URL-параметри і зберігаємо їх
@@ -30,9 +29,9 @@ const Shop = () => {
 			const parseNavigate = qs.parse(window.location.search.substring(1))
 			const params = {
 				category: categories.find(obj => obj.categoryProperty === parseNavigate.categoryProperty),
-				sort: sorts.find(obj => obj.sortProperty === parseNavigate.sortProperty),
 				search: parseNavigate.searchValue
 			}
+			console.log(params)
 			dispatch(setFilters({
 				...params
 			})
@@ -40,13 +39,11 @@ const Shop = () => {
 			isParams.current = true
 		}
 	}, [])
-	// console.log()
 	//Функція яка робить запит до беку та витягує продукти
 	const getProducts = async () => {
 		// setIsLoading(true)
 		dispatch(fetchProducts({
 			selectedCategory,
-			selectedSort,
 			searchValue
 		}))
 	}
@@ -57,13 +54,12 @@ const Shop = () => {
 		if (isMounted.current) {
 			const queryString = qs.stringify({
 				categoryProperty: selectedCategory.categoryProperty,
-				sortProperty: selectedSort.sortProperty,
 				searchValue
 			})
 			navigate(`?${queryString}`)
 		}
 		isMounted.current = true
-	}, [selectedCategory, selectedSort, searchValue])
+	}, [selectedCategory, searchValue])
 
 	React.useEffect(() => {
 		window.scrollTo(0, 0)
@@ -71,14 +67,14 @@ const Shop = () => {
 			getProducts()
 		}
 		isParams.current = false
-	}, [selectedCategory, selectedSort, searchValue]);
+	}, [selectedCategory, searchValue]);
 
 	return (
 		<div className="page__shop">
 
 			<div className={`content__top `}>
 				<Categories />
-				{/* <Sort /> */}
+
 				<Search />
 			</div>
 			<ContentItems products={products} status={status} />
