@@ -3,16 +3,25 @@ import { useSelector, useDispatch } from 'react-redux'
 import { addProduct } from "../redux/Slices/cartSlice";
 import { Link } from 'react-router-dom';
 
+type ProductBlockProps = {
+	itemObj: {
+		id: string;
+		name: string;
+		img: string[];
+		cost: number[];
+		extent: number[];
+	}
+}
 
-const ProductBlock = ({ itemObj }) => {
+const ProductBlock: React.FC<ProductBlockProps> = ({ itemObj }) => {
 
 
 	const dispatch = useDispatch()
-	const items = useSelector(state => state.cartSlice.products.filter(obj => obj.name === itemObj.name))
-	const countItems = items.reduce((sum, obj) => {
+	const items = useSelector((state: any) => state.cartSlice.products.filter((obj: any) => obj.name === itemObj.name))
+	const countItems = items.reduce((sum: any, obj: any) => {
 		return obj.count + sum
 	}, 0)
-	const [selectedExtent, setSelectedExtent] = React.useState(0);
+	const [selectedExtent, setSelectedExtent] = React.useState<number>(0);
 
 	const productAdd = () => {
 		const productByCart = {
@@ -25,7 +34,7 @@ const ProductBlock = ({ itemObj }) => {
 		dispatch(addProduct(productByCart))
 	}
 
-	const handelExtent = (index) => {
+	const handelExtent = (index: number) => {
 		setSelectedExtent(index)
 	}
 
@@ -45,7 +54,7 @@ const ProductBlock = ({ itemObj }) => {
 					<div className="product-block__selector">
 						<ul>
 							{
-								itemObj.extent.map((item, index) => (
+								itemObj.extent.map((item: number, index: number) => (
 									<li
 										onClick={() => handelExtent(index)}
 										key={item}

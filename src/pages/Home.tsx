@@ -1,7 +1,7 @@
 import React from 'react';
 import { Sidebar } from "../components";
 
-const Home = () => {
+const Home: React.FC = () => {
 	console.log('render home')
 	return (
 		<div>

@@ -2,7 +2,12 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { selectFiltersCategory, setCategory } from '../redux/Slices/filterSlice'
 
-export const categories = [
+type Category = {
+	name: string;
+	categoryProperty: string;
+}
+
+export const categories: Category[] = [
 	{
 		name: 'Всі',
 		categoryProperty: ""
@@ -32,7 +37,7 @@ const Categories = () => {
 	const dispatch = useDispatch()
 
 
-	const onClickCategory = (item) => {
+	const onClickCategory = (item: Category) => {
 		dispatch(setCategory(item))
 	}
 	return (

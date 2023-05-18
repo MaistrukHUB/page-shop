@@ -4,14 +4,27 @@ import { useSelector, useDispatch } from 'react-redux'
 import { clearCart } from "../redux/Slices/cartSlice";
 import { Link } from 'react-router-dom';
 
-const Cart = () => {
+// type Product = {
+// 	id: string
+// 	img: string[]
+// 	name: string;
+// 	extent: number[]
+// 	cost: number[]
+// 	rating: string
+// 	about: string
+// 	type: string
+// 	category: string
+// 	count: number;
+// }
+type Product = any
+const Cart: React.FC = () => {
 	const dispatch = useDispatch()
 	const onClickClear = () => {
 		dispatch(clearCart())
 	}
 
-	const { products, totalPrice, totalCount } = useSelector(state => state.cartSlice)
-
+	const { products, totalPrice, totalCount } = useSelector((state: any) => state.cartSlice)
+	console.log(products)
 	if (products.length === 0) {
 		return (
 			<CartEmpty />
@@ -41,7 +54,7 @@ const Cart = () => {
 
 					</div>
 					<div className="content__items-cart">
-						{products && products.map((product) => (
+						{products && products.map((product: Product) => (
 							<CartItem key={`${product.id}${product.cost}`} product={product} />
 						))}
 					</div>

@@ -2,7 +2,7 @@ import React from 'react';
 import error from "../assets/img/error-404.png";
 
 
-const ErrorBlock = () => {
+const ErrorBlock: React.FC = () => {
 	return (
 		<div className='error404'>
 			<img src={error} alt="error404" />

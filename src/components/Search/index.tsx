@@ -1,41 +1,37 @@
 import React from 'react';
-import style from "./Search.module.scss";
-import debounce from "lodash.debounce";
+import { useDispatch } from 'react-redux';
+import debounce from 'lodash.debounce';
 
-import { useDispatch, useSelector } from 'react-redux'
-import { selectFilters, setSearchValue } from '../../redux/Slices/filterSlice'
+import styles from './Search.module.scss';
+import { setSearchValue } from '../../redux/Slices/filterSlice'
 
-
-const Index = () => {
-	const dispatch = useDispatch()
-	const [value, setValue] = React.useState('');
-	const { searchValue } = useSelector(selectFilters)
-
-	React.useEffect(() => {
-		setValue(searchValue)
-	}, [searchValue])
+export const Search: React.FC = () => {
+	const dispatch = useDispatch();
+	const [value, setValue] = React.useState<string>('');
+	const inputRef = React.useRef<HTMLInputElement>(null);
 
 	const onClickClear = () => {
-		inputRef.current.focus()
-		dispatch(setSearchValue(value))
-		setValue('')
-	}
+		dispatch(setSearchValue(''));
+		setValue('');
+		inputRef.current?.focus();
+	};
 
 	const updateSearchValue = React.useCallback(
-		debounce((e) => {
-			dispatch(setSearchValue(e.target.value))
-		}, 500),
-		[]
-	)
-	const onChangeInput = (e) => {
-		setValue(e.target.value);
-		updateSearchValue(e)
-	}
-	const inputRef = React.useRef()
+		debounce((str: string) => {
+			dispatch(setSearchValue(str));
+		}, 150),
+		[],
+	);
+
+	const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setValue(event.target.value);
+		updateSearchValue(event.target.value);
+	};
+
 	return (
-		<div className={style.root}>
+		<div className={styles.root}>
 			<svg
-				className={style.icon}
+				className={styles.icon}
 				enableBackground="new 0 0 32 32"
 				id="EditableLine"
 				version="1.1"
@@ -70,14 +66,14 @@ const Index = () => {
 			<input
 				ref={inputRef}
 				value={value}
-				onChange={(e) => onChangeInput(e)}
-				className={style.input}
-				placeholder="Пошук піци..."
+				onChange={onChangeInput}
+				className={styles.input}
+				placeholder="Поиск пиццы..."
 			/>
-			{searchValue && (
+			{value && (
 				<svg
 					onClick={onClickClear}
-					className={style.clearIcon}
+					className={styles.clearIcon}
 					viewBox="0 0 20 20"
 					xmlns="http://www.w3.org/2000/svg">
 					<path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z" />
@@ -85,6 +81,5 @@ const Index = () => {
 			)}
 		</div>
 	);
-}
-
-export default Index;
+};
+export default Search;

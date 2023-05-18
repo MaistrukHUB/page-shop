@@ -8,20 +8,20 @@ import { selectFilters, setFilters } from "../redux/Slices/filterSlice";
 import { fetchProducts, selectProducts } from "../redux/Slices/productsSlice";
 import { useNavigate } from "react-router-dom";
 
-const Shop = () => {
-	console.log('render Shop')
+const Shop: React.FC = () => {
+
 
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
-	const isParams = React.useRef(false)
-	const isMounted = React.useRef(false)
+	const isParams = React.useRef<boolean>(false)
+	const isMounted = React.useRef<boolean>(false)
 
 	// const [products, setProducts] = React.useState([]);
 	// const [isLoading, setIsLoading] = React.useState(true);
 
-	const { selectedCategory, selectedSort, searchValue } = useSelector(selectFilters)
+	const { selectedCategory, searchValue } = useSelector(selectFilters)
 	const { products, status } = useSelector(selectProducts)
-	console.log(status)
+
 
 
 	// якщо був перший ренднр перевіряємо URL-параметри і зберігаємо їх
@@ -32,7 +32,6 @@ const Shop = () => {
 				category: categories.find(obj => obj.categoryProperty === parseNavigate.categoryProperty),
 				search: parseNavigate.searchValue
 			}
-			console.log(params)
 			dispatch(setFilters({
 				...params
 			})
@@ -42,11 +41,12 @@ const Shop = () => {
 	}, [])
 	//Функція яка робить запит до беку та витягує продукти
 	const getProducts = async () => {
-		// setIsLoading(true)
-		dispatch(fetchProducts({
-			selectedCategory,
-			searchValue
-		}))
+		dispatch(
+			//@ts-ignore
+			fetchProducts({
+				selectedCategory,
+				searchValue
+			}))
 	}
 
 
@@ -79,7 +79,6 @@ const Shop = () => {
 				<Search />
 			</div>
 			<ContentItems products={products} status={status} />
-			{/* <Sidebar visible={'visible-shop'} /> */}
 		</div>
 	);
 }

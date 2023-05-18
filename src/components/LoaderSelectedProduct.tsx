@@ -1,14 +1,14 @@
 import React from 'react'
 import ContentLoader from 'react-content-loader'
 
-const LoaderSelectedProduct = props => (
+
+const LoaderSelectedProduct: React.FC = () => (
 	<ContentLoader
 		width={1200}
 		height={1000}
 		viewBox="0 0 700 300"
 		backgroundColor="#f5f5f5"
 		foregroundColor="#dbdbdb"
-		{...props}
 	>
 		<rect x="4" y="8" rx="3" ry="3" width="7" height="288" />
 		<rect x="6" y="289" rx="3" ry="3" width="669" height="8" />
@@ -26,11 +26,6 @@ const LoaderSelectedProduct = props => (
 	</ContentLoader>
 )
 
-LoaderSelectedProduct.metadata = {
-	name: 'Sridhar Easwaran',
-	github: 'sridhareaswaran',
-	description: 'Events',
-	filename: 'LoaderSelectedProduct',
-}
+
 
 export default LoaderSelectedProduct

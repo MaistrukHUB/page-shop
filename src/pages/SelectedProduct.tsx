@@ -2,7 +2,6 @@
 import { Link, useParams } from 'react-router-dom';
 import axios from "axios";
 import { LoaderSelectedProduct, ErrorBlock } from "../components";
-import { NotFound } from "../pages";
 import { useSelector, useDispatch } from 'react-redux'
 import { addProduct } from "../redux/Slices/cartSlice";
 
@@ -10,23 +9,47 @@ import React from 'react';
 
 
 
-const SelectedProduct = () => {
+const SelectedProduct: React.FC | any = () => {
 	const dispatch = useDispatch()
 	const { id } = useParams();
 	console.log(id)
 
-	const [product, setProduct] = React.useState('');
-	const [error, setError] = React.useState();
-	const [isLoading, setIsLoading] = React.useState(false);
-	const [selectedExtent, setSelectedExtent] = React.useState(0);
+	const [product, setProduct] = React.useState<{
+		id: string
+		img: string[]
+		name: string;
+		extent: number[]
+		cost: number[]
+		rating: string
+		about: string
+		type: string
+		category: string
+	}>(
+		{
+			id: '',
+			img: [],
+			name: '',
+			extent: [],
+			cost: [],
+			rating: '',
+			about: '',
+			type: '',
+			category: '',
+		}
+	);
 
-	const items = useSelector(state => state.cartSlice.products.filter(obj => obj.name === product.name))
 
-	const countItems = items.reduce((sum, obj) => {
+	const [error, setError] = React.useState<boolean>();
+	const [isLoading, setIsLoading] = React.useState<boolean>(false);
+	const [selectedExtent, setSelectedExtent] = React.useState<number>(0);
+
+	const items = useSelector((state: { cartSlice: { products: [] } }) => state.cartSlice.products.filter((obj: { name: string }) => obj.name === product.name))
+
+	const countItems = items.reduce((sum, obj: { count: number }) => {
 		return obj.count + sum
 	}, 0)
 
-	const handelExtent = (index) => {
+	const handelExtent = (index: number) => {
 		setSelectedExtent(index)
 	}
 
@@ -42,7 +65,7 @@ const SelectedProduct = () => {
 	}
 
 	React.useEffect(() => {
-		async function fetchProduct(params) {
+		async function fetchProduct() {
 			try {
 				const { data } = await axios.get("https://64493955b88a78a8f0016922.mockapi.io/products/" + id)
 
@@ -61,6 +84,7 @@ const SelectedProduct = () => {
 			<ErrorBlock />
 		)
 	}
+
 	if (isLoading === true) {
 		return (
 			<div className={'pages-product'}>

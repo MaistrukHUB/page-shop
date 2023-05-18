@@ -1,8 +1,11 @@
 import React from 'react';
-import { ProductBlock, MyLoader, ErrorBlock } from "../components";
+import { ProductBlock, MyLoader, ErrorBlock } from ".";
 
-
-const ContentItems = ({ products, status }) => {
+type ContentItemsProps = {
+	products: {}[];
+	status: string;
+}
+const ContentItems: React.FC<ContentItemsProps> = ({ products, status }) => {
 
 	return (
 		<>
@@ -14,6 +17,7 @@ const ContentItems = ({ products, status }) => {
 					{status === 'loading'
 						? [...new Array(9)].map((_, index) => <MyLoader key={index} />)
 						: products.map((obj) => (
+							//@ts-ignore
 							<ProductBlock key={obj.id} itemObj={obj} />
 						))
 					}

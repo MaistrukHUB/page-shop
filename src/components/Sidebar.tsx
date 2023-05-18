@@ -1,6 +1,9 @@
 import React from 'react';
 
-const Sidebar = ({ visible }) => {
+type SidebarProps = {
+	visible: string
+}
+const Sidebar: React.FC<SidebarProps> = ({ visible }) => {
 	return (
 		<div className={`sidebar ${visible}`}>
 			<ul className="price-list ">

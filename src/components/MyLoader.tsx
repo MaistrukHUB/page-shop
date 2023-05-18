@@ -1,7 +1,7 @@
 import React from "react"
 import ContentLoader from "react-content-loader"
 
-const MyLoader = (props) => (
+const MyLoader: React.FC = () => (
 	<ContentLoader
 		className={'product-block-loader'}
 		speed={2}
@@ -10,7 +10,7 @@ const MyLoader = (props) => (
 		viewBox="0 0 260 450"
 		backgroundColor="#f3f3f3"
 		foregroundColor="#ecebeb"
-		{...props}
+
 	>
 		<rect x="0" y="263" rx="11" ry="11" width="260" height="84" />
 		<rect x="1" y="405" rx="7" ry="7" width="87" height="26" />
