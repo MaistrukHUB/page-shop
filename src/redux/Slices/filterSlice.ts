@@ -1,6 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { RootState } from "../store";
 
-const initialState = {
+
+type Category = {
+	name: string;
+	categoryProperty: string;
+}
+
+interface FilterSliceState {
+	selectedCategory: Category;
+	searchValue: string;
+}
+
+const initialState: FilterSliceState = {
 	selectedCategory: {
 		name: 'Всі',
 		categoryProperty: ""
@@ -30,8 +42,8 @@ const filterSlice = createSlice({
 
 
 //select so as not to repeat the code
-export const selectFilters = (state) => state.filtersSlice
-export const selectFiltersCategory = (state) => state.filtersSlice.selectedCategory
+export const selectFilters = (state: RootState) => state.filtersSlice
+export const selectFiltersCategory = (state: RootState) => state.filtersSlice.selectedCategory
 
 //in filterSlice.actions  are stored all actions
 export const { setCategory, setSearchValue, setFilters } = filterSlice.actions

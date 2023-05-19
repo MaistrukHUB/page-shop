@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios";
+import { RootState } from "../store";
 
 
 export const fetchProducts = createAsyncThunk(
@@ -50,7 +51,7 @@ const productsSlice = createSlice({
 })
 
 //select so as not to repeat the code
-export const selectProducts = (state) => state.productsSlice
+export const selectProducts = (state: RootState) => state.productsSlice
 
 //in filterSlice.actions  are stored all actions
 export const { setProducts } = productsSlice.actions

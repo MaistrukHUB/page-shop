@@ -19,6 +19,7 @@ import { Link } from 'react-router-dom';
 type Product = any
 const Cart: React.FC = () => {
 	const dispatch = useDispatch()
+
 	const onClickClear = () => {
 		dispatch(clearCart())
 	}

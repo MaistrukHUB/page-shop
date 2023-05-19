@@ -1,19 +1,34 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { RootState } from "../store";
 
-const initialState = {
+type CartItem = {
+	id: number;
+	img: string;
+	name: string;
+	extent: number;
+	count: number;
+	cost: number;
+}
+
+interface CartSliceState {
+	products: CartItem[];
+	totalPrice: number;
+	totalCount: number;
+}
+
+const initialState: CartSliceState = {
 	products: [],
 	totalPrice: 0,
 	totalCount: 0
 }
 
-const updateTotalPriceCount = (state) => {
+const updateTotalPriceCount = (state: CartSliceState) => {
 	state.totalPrice = state.products.reduce((sum, obj) => {
 		return (obj.cost * obj.count) + sum
 	}, 0)
 
 	state.totalCount = state.products.reduce((sum, obj) => {
 		return obj.count + sum
-
 	}, 0)
 }
 
@@ -37,12 +52,12 @@ const cartSlice = createSlice({
 		},
 		minusProduct(state, action) {
 			const findProduct = state.products.find(obj => obj.id === action.payload.id)
-			if (findProduct.count <= 1) {
+			if (findProduct && findProduct.count <= 1) {
 				if (window.confirm('Ви дійсно хочете видалити продукт?')) {
 					state.products = state.products.filter((obj) => obj.id !== action.payload.id)
 				}
 
-			} else if (findProduct.count > 1) {
+			} else if (findProduct && findProduct.count > 1) {
 				findProduct.count--
 			}
 
