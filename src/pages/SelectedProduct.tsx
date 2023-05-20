@@ -3,9 +3,11 @@ import { Link, useParams } from 'react-router-dom';
 import axios from "axios";
 import { LoaderSelectedProduct, ErrorBlock } from "../components";
 import { useSelector, useDispatch } from 'react-redux'
-import { addProduct } from "../redux/Slices/cartSlice";
+import { addProduct, CartItem } from "../redux/Slices/cartSlice";
+
 
 import React from 'react';
+import { count } from 'console';
 
 
 
@@ -38,7 +40,7 @@ const SelectedProduct: React.FC | any = () => {
 		}
 	);
 
-
+	console.log(product)
 	const [error, setError] = React.useState<boolean>();
 	const [isLoading, setIsLoading] = React.useState<boolean>(false);
 	const [selectedExtent, setSelectedExtent] = React.useState<number>(0);
@@ -54,12 +56,13 @@ const SelectedProduct: React.FC | any = () => {
 	}
 
 	const productAdd = () => {
-		const productByCart = {
+		const productByCart: CartItem = {
 			id: Date.now(),
 			name: product.name,
 			img: product.img[0],
 			cost: product.cost[selectedExtent],
-			extent: product.extent[selectedExtent]
+			extent: product.extent[selectedExtent],
+			count: 0
 		}
 		dispatch(addProduct(productByCart))
 	}

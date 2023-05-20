@@ -4,7 +4,7 @@ import axios from "axios";
 import { categories } from "../components/Categories";
 import { useSelector, useDispatch } from 'react-redux'
 import qs from 'qs'
-import { selectFilters, setFilters } from "../redux/Slices/filterSlice";
+import { FilterSliceState, selectFilters, setFilters } from "../redux/Slices/filterSlice";
 import { fetchProducts, selectProducts } from "../redux/Slices/productsSlice";
 import { useNavigate } from "react-router-dom";
 
@@ -16,8 +16,6 @@ const Shop: React.FC = () => {
 	const isParams = React.useRef<boolean>(false)
 	const isMounted = React.useRef<boolean>(false)
 
-	// const [products, setProducts] = React.useState([]);
-	// const [isLoading, setIsLoading] = React.useState(true);
 
 	const { selectedCategory, searchValue } = useSelector(selectFilters)
 	const { products, status } = useSelector(selectProducts)
@@ -29,14 +27,19 @@ const Shop: React.FC = () => {
 		if (window.location.search) {
 			const parseNavigate = qs.parse(window.location.search.substring(1))
 			const params = {
-				category: categories.find(obj => obj.categoryProperty === parseNavigate.categoryProperty),
-				search: parseNavigate.searchValue
+				selectedCategory: categories.find(obj => obj.categoryProperty === parseNavigate.categoryProperty) || selectedCategory,
+				searchValue: parseNavigate.searchValue?.toString() || ''
 			}
-			dispatch(setFilters({
-				...params
-			})
-			)
+			console.log(parseNavigate.searchValue)
+			if (searchValue !== undefined && selectedCategory !== undefined) {
+				dispatch(setFilters({
+					...params
+				})
+				)
+			}
+
 			isParams.current = true
+
 		}
 	}, [])
 	//Функція яка робить запит до беку та витягує продукти
@@ -54,7 +57,7 @@ const Shop: React.FC = () => {
 	React.useEffect(() => {
 		if (isMounted.current) {
 			const queryString = qs.stringify({
-				categoryProperty: selectedCategory.categoryProperty,
+				categoryProperty: selectedCategory?.categoryProperty,
 				searchValue
 			})
 			navigate(`?${queryString}`)

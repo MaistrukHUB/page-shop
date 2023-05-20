@@ -1,14 +1,18 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import debounce from 'lodash.debounce';
 
 import styles from './Search.module.scss';
 import { setSearchValue } from '../../redux/Slices/filterSlice'
+import { selectFilters } from "../../redux/Slices/filterSlice";
+
 
 export const Search: React.FC = () => {
 	const dispatch = useDispatch();
 	const [value, setValue] = React.useState<string>('');
 	const inputRef = React.useRef<HTMLInputElement>(null);
+
+	const { selectedCategory, searchValue } = useSelector(selectFilters)
 
 	const onClickClear = () => {
 		dispatch(setSearchValue(''));
@@ -65,7 +69,7 @@ export const Search: React.FC = () => {
 			</svg>
 			<input
 				ref={inputRef}
-				value={value}
+				value={searchValue}
 				onChange={onChangeInput}
 				className={styles.input}
 				placeholder="Поиск пиццы..."

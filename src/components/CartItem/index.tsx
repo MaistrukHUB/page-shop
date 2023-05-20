@@ -6,6 +6,7 @@ import { addProduct, minusProduct, removeProduct } from "../../redux/Slices/cart
 
 type CartItemProps = {
 	product: {
+		id: number;
 		img: string;
 		name: string;
 		extent: number;

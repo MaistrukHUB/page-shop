@@ -1,7 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 import { RootState } from "../store";
 
-type CartItem = {
+export type CartItem = {
 	id: number;
 	img: string;
 	name: string;
@@ -38,7 +38,7 @@ const cartSlice = createSlice({
 	initialState,
 	//methods from reducers == actions
 	reducers: {
-		addProduct(state, action) {
+		addProduct(state, action: PayloadAction<CartItem>) {
 			const findProduct = state.products.find(obj => obj.name === action.payload.name && obj.cost === action.payload.cost)
 			if (findProduct) {
 				findProduct.count++
@@ -50,34 +50,28 @@ const cartSlice = createSlice({
 			}
 			updateTotalPriceCount(state)
 		},
-		minusProduct(state, action) {
+		minusProduct(state, action: PayloadAction<CartItem>) {
 			const findProduct = state.products.find(obj => obj.id === action.payload.id)
 			if (findProduct && findProduct.count <= 1) {
 				if (window.confirm('Ви дійсно хочете видалити продукт?')) {
 					state.products = state.products.filter((obj) => obj.id !== action.payload.id)
 				}
-
 			} else if (findProduct && findProduct.count > 1) {
 				findProduct.count--
 			}
-
 			updateTotalPriceCount(state)
 		},
-
-		removeProduct(state, action) {
+		removeProduct(state, action: PayloadAction<CartItem>) {
 			if (window.confirm('Ви дійсно хочете видалити продукт?')) {
 				state.products = state.products.filter((obj) => obj.id !== action.payload.id)
 				updateTotalPriceCount(state)
 			}
-
-
 		},
 		clearCart(state) {
 			if (window.confirm('Ви дійсно хочете очистити корзину?')) {
 				state.products = []
 				updateTotalPriceCount(state)
 			}
-
 		}
 	}
 })

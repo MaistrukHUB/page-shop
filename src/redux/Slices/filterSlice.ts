@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 import { RootState } from "../store";
 
 
@@ -7,9 +7,9 @@ type Category = {
 	categoryProperty: string;
 }
 
-interface FilterSliceState {
+export interface FilterSliceState {
 	selectedCategory: Category;
-	searchValue: string;
+	searchValue: string
 }
 
 const initialState: FilterSliceState = {
@@ -27,15 +27,15 @@ const filterSlice = createSlice({
 	initialState,
 	//methods from reducers == actions
 	reducers: {
-		setCategory(state, action) {
+		setCategory(state, action: PayloadAction<Category>) {
 			state.selectedCategory = action.payload
 		},
-		setSearchValue(state, action) {
+		setSearchValue(state, action: PayloadAction<string>) {
 			state.searchValue = action.payload
 		},
-		setFilters(state, action) {
-			state.selectedCategory = action.payload.category
-			state.searchValue = action.payload.search
+		setFilters(state, action: PayloadAction<FilterSliceState>) {
+			state.selectedCategory = action.payload.selectedCategory
+			state.searchValue = action.payload.searchValue
 		},
 	}
 })

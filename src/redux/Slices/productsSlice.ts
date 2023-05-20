@@ -14,8 +14,24 @@ export const fetchProducts = createAsyncThunk(
 		return data
 	}
 )
+export type ProductItem = {
+	about: string;
+	category: string;
+	cost: number[];
+	extent: number[];
+	id: string;
+	img: string[];
+	name: string;
+	rating: string;
+	type: string;
 
-const initialState = {
+}
+interface ProductSliceState {
+	products: ProductItem[];
+	status: string;
+}
+
+const initialState: ProductSliceState = {
 	products: [],
 	status: 'loading',
 }

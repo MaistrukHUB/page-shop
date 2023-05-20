@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { addProduct } from "../redux/Slices/cartSlice";
+import { CartItem, addProduct } from "../redux/Slices/cartSlice";
 import { Link } from 'react-router-dom';
 
 type ProductBlockProps = {
@@ -11,6 +11,7 @@ type ProductBlockProps = {
 		cost: number[];
 		extent: number[];
 	}
+
 }
 
 const ProductBlock: React.FC<ProductBlockProps> = ({ itemObj }) => {
@@ -24,12 +25,13 @@ const ProductBlock: React.FC<ProductBlockProps> = ({ itemObj }) => {
 	const [selectedExtent, setSelectedExtent] = React.useState<number>(0);
 
 	const productAdd = () => {
-		const productByCart = {
+		const productByCart: CartItem = {
 			id: Date.now(),
 			name: itemObj.name,
 			img: itemObj.img[0],
 			cost: itemObj.cost[selectedExtent],
-			extent: itemObj.extent[selectedExtent]
+			extent: itemObj.extent[selectedExtent],
+			count: 0
 		}
 		dispatch(addProduct(productByCart))
 	}
