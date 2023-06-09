@@ -1,0 +1,39 @@
+.btn-reserve {
+
+    cursor: pointer;
+    height: 70px;
+    width: 190px;
+    text-align: center;
+    position: fixed;
+    left: 30px;
+    bottom: 50px;
+    z-index: 999;
+    transition: .3s;
+    background: rgba(0, 0, 0, 0.848);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	border: solid 1px   #000000;
+    border-radius: 15px;
+}
+
+.btn-reserve__ico {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    font-size: 24px;
+    padding-top: 5px;
+    transition: .3s all;
+}
+
+.btn-reserve:hover {
+    background-color: #fff;
+}
+
+.btn-reserve:hover .btn-reserve__ico {
+    color: #38a3fd;
+}
+
+

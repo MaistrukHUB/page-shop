@@ -1,14 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import './scss/app.scss'
 
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
-import { Header, Sidebar } from "./components";
-import { Shop, Cart, NotFound, Home, SelectedProduct } from "./pages";
+
+import { Shop, Cart, NotFound, Home, SelectedProduct,AboutPage } from "./pages";
 import MainLayout from "./layouts/MainLayout";
+
+import axios from "axios";
+
 
 
 function App() {
+  //@ts-ignore
+  const [first, setfirst] = useState('')
+  React.useEffect(() => {
+
+    //@ts-ignore
+    axios.get('http://localhost:4444/').then(({ data }) => {
+      setfirst(data)
+
+    })
+  }, [])
+  console.log(first)
+
 
   return (
     <div className="App">
@@ -18,6 +33,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/shop' element={<Shop />} />
           <Route path='/cart' element={<Cart />} />
+          <Route path='/about' element={<AboutPage />} />
           <Route path='/product/:id' element={<SelectedProduct />} />
           <Route path='*' element={<NotFound />} />
         </Route>

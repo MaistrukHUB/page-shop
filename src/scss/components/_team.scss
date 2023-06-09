@@ -1,0 +1,50 @@
+.team__carousel{
+	overflow:hidden;
+	padding: 0 122px;
+	display:flex;
+	margin-bottom: 100px;
+	height:  650px;
+	width: 100%;
+	max-width: 1922px;
+	margin: 0 auto;
+	.team__content{
+		margin:0 auto;
+		width: 80%;
+		height: 500px;
+		margin-bottom: 100px;
+	}
+}
+.team__item{
+	margin: 0 auto;
+	min-width: 360px;
+	max-width: 360px;
+	height: 500px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	img{
+		width: 330px;
+	}
+	p{
+		margin: 10px 0;
+		font-size: 20px;
+		font-family: 'Montserrat', sans-serif;
+		color: #000;
+	}
+	span{
+		color: #000;
+	}
+	.team__item-name{
+		font-size: 25px;
+		font-weight: 500;
+	}
+	.team__item-experience{
+		text-align: center;
+		span{
+			font-size: 25px;
+			font-weight: 500;
+		}
+	}
+}
+

@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { CartItem, addProduct } from "../redux/Slices/cartSlice";
+import { CartItemType, addProduct} from "../redux/Slices/cartSlice";
 import { Link } from 'react-router-dom';
-
+import { selectCartProducts } from "../redux/Slices/cartSlice";
 type ProductBlockProps = {
 	itemObj: {
 		id: string;
@@ -18,15 +18,20 @@ const ProductBlock: React.FC<ProductBlockProps> = ({ itemObj }) => {
 
 
 	const dispatch = useDispatch()
-	const items = useSelector((state: any) => state.cartSlice.products.filter((obj: any) => obj.name === itemObj.name))
+	
+	
+	const CartProducts = useSelector(selectCartProducts)
+	const items = CartProducts.filter((obj) => obj.name === itemObj.name)
 	const countItems = items.reduce((sum: any, obj: any) => {
 		return obj.count + sum
 	}, 0)
+
 	const [selectedExtent, setSelectedExtent] = React.useState<number>(0);
 
 	const productAdd = () => {
-		const productByCart: CartItem = {
+		const productByCart: CartItemType = {
 			id: Date.now(),
+			idBySearch:itemObj.id,
 			name: itemObj.name,
 			img: itemObj.img[0],
 			cost: itemObj.cost[selectedExtent],
@@ -48,7 +53,8 @@ const ProductBlock: React.FC<ProductBlockProps> = ({ itemObj }) => {
 						className="product-block__image"
 						src={itemObj.img[0]}
 						alt="product"
-					/></Link>
+					/>
+					</Link>
 
 				<h4 className="product-block__title">{itemObj.name}</h4>
 				{itemObj.extent.length > 0

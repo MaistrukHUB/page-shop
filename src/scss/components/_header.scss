@@ -5,8 +5,8 @@
   background: #fff;
   left: center;
   top: 0;
-  z-index: 10;
-  height: 100px;
+  z-index: 11;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -17,6 +17,9 @@
   @media (max-width:1070px) {
  justify-content: center;
   }
+  @media (max-width:550px) {
+    padding-right: 20px;
+  }
 
   .container {
     display: flex;
@@ -25,6 +28,7 @@
   }
 
   &__logo {
+    text-transform: uppercase;
       display: flex;
       font-size: 32px;
       font-weight: 700;
@@ -185,7 +189,7 @@
 .button-burger{ 
   position: absolute;
   left: 50px;
-  top: 25px;
+  top: 15px;
   z-index: 10;
   display: none;
   width: 50px;

@@ -8,26 +8,20 @@ type FetchProductsParams = {
 	searchValue: string
 }
 
-export type ProductItem = {
-	about: string;
-	category: string;
-	cost: number[];
-	extent: number[];
-	id: string;
-	img: string[];
-	name: string;
-	rating: string;
-	type: string;
-
+export type TeamItemType = {
+	id: String,
+	img: String,
+	name: String,
+	fullname:String,
+	experience: String,
+    rank:String,
 }
 
-export const fetchProducts = createAsyncThunk(
-	'products/fetchProducts',
-	async (params: FetchProductsParams) => {
-		const { selectedCategory, searchValue } = params
-		// const { data } = await axios.get(`https://64493955b88a78a8f0016922.mockapi.io/products?sortBy=.[0]&order=desc&filter=${selectedCategory.categoryProperty}&search=${searchValue}`)
-		const { data } = await axios.post(`http://localhost:4444/products`,{selectedCategory ,searchValue})
-		return data as ProductItem[]
+export const fetchTeam = createAsyncThunk(
+	'team/fetchTeam',
+	async () => {
+		const { data } = await axios.get(`http://localhost:4444/team`)
+		return data as TeamItemType[]
 	}
 )
 
@@ -38,42 +32,42 @@ enum Status {
 
 }
 
-interface ProductSliceState {
-	products: ProductItem[];
+interface TeamSliceState {
+	team: TeamItemType[];
 	status: Status
 }
 
-const initialState: ProductSliceState = {
-	products: [],
+const initialState: TeamSliceState = {
+	team: [],
 	status: Status.LOADING,
 }
 
 
 //if we make slice need import this method from "@reduxjs/toolkit"
-const productsSlice = createSlice({
-	name: 'products',
+const teamSlice = createSlice({
+	name: 'team',
 	initialState,
 	//methods from reducers == actions
 	reducers: {
 		setProducts(state, action) {
-			state.products = action.payload
+			state.team = action.payload
 		},
 	},
 	extraReducers: (builder) => {
-		builder.addCase(fetchProducts.pending, (state) => {
-			state.products = []
+		builder.addCase(fetchTeam.pending, (state) => {
+			state.team = []
 			state.status = Status.LOADING
 			//триває запит
 		})
-		builder.addCase(fetchProducts.fulfilled, (state, action: PayloadAction<ProductItem[]>) => {
-			state.products = action.payload
+		builder.addCase(fetchTeam.fulfilled, (state, action: PayloadAction<TeamItemType[]>) => {
+			state.team = action.payload
 			state.status = Status.SUCCESS
 			console.log(action.payload)
 
 			// запит успішний
 		})
-		builder.addCase(fetchProducts.rejected, (state) => {
-			state.products = []
+		builder.addCase(fetchTeam.rejected, (state) => {
+			state.team = []
 			state.status = Status.ERROR
 			// трапилась помилка
 		})
@@ -99,9 +93,9 @@ const productsSlice = createSlice({
 })
 
 //select so as not to repeat the code
-export const selectProducts = (state: RootState) => state.productsSlice
+export const selectTeam = (state: RootState) => state.teamSlice
 
 //in filterSlice.actions  are stored all actions
-export const { setProducts } = productsSlice.actions
+export const { setProducts } = teamSlice.actions
 
-export default productsSlice.reducer
+export default teamSlice.reducer

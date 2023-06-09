@@ -1,21 +1,6 @@
 .sidebar{
-	position: fixed;
-	top: 100px;
-	right: 0;
-	height: 100vh;
-	padding: 40px ;
-	width: 28%;
-	min-width: 390px;
-	display: flex;
-	flex-direction: column;
- }
-
- .sidebar.visible-shop{
-	@media (max-width:1400px) {
-		display: none;
-		
-	}
-
+	display: block;
+	max-width: 330px;
  }
 
  .price-list{
@@ -35,3 +20,39 @@
 		margin-bottom: 30px;
 	}
  }
+
+ .sidebar.visible-shop{
+	position: absolute;
+	top: 100px;
+	right: 0;
+	height: 100vh;
+	padding: 40px ;
+	width: 28%;
+	min-width: 390px;
+	display: flex;
+	flex-direction: column;
+	@media (max-width:1400px) {
+		display: none;
+		
+	}
+	
+
+ }
+ .sidebar.sidebarMain{
+	width: 100%;
+margin: 50px auto 0;
+
+ }
+ .sidebar.sidebarMain{
+	.price-list{
+		
+		border: none;
+		&__title{
+			font-size: 30px;
+			margin: 30px auto;
+		}
+	}
+
+ }
+
+

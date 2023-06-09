@@ -1,0 +1,46 @@
+.aboutPage{
+    width: 100%;
+    margin-top: 70px;
+    &-content{
+        padding: 30px;
+    }
+    &-blokInfo{
+        width: 100%;
+        display: flex;
+        margin-bottom: 50px;
+        @media (max-width:1000px) {
+            flex-direction: column;
+            align-items: center;
+          }
+         
+    }
+     &-blokInfo.revers{
+        flex-direction: row-reverse;
+         @media (max-width:1000px) {
+            flex-direction: column;
+            align-items: center;
+          }
+     }
+}
+.blokInfo-img{
+    padding: 15px;
+    width: 50%;
+    @media (max-width:1000px) {
+        width: 90%;
+      }
+    img{
+        display: inline-block;
+        width: 100%;
+    }
+}
+.blokInfo-text{
+    padding: 15px;
+    width: 50%;
+    @media (max-width:1000px) {
+        width: 90%;
+      }
+    .blokInfo-title{
+        font-size: 22px;
+        font-weight: 700;
+    }
+}

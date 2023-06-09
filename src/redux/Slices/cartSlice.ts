@@ -1,8 +1,10 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 import { RootState } from "../store";
 
-export type CartItem = {
+
+export type CartItemType = {
 	id: number;
+	idBySearch:string;
 	img: string;
 	name: string;
 	extent: number;
@@ -10,13 +12,13 @@ export type CartItem = {
 	cost: number;
 }
 
-interface CartSliceState {
-	products: CartItem[];
+export interface CartSliceState {
+	products: CartItemType[];
 	totalPrice: number;
 	totalCount: number;
 }
 
-const initialState: CartSliceState = {
+ const initialState: CartSliceState = {
 	products: [],
 	totalPrice: 0,
 	totalCount: 0
@@ -38,7 +40,7 @@ const cartSlice = createSlice({
 	initialState,
 	//methods from reducers == actions
 	reducers: {
-		addProduct(state, action: PayloadAction<CartItem>) {
+		addProduct(state, action: PayloadAction<CartItemType>) {
 			const findProduct = state.products.find(obj => obj.name === action.payload.name && obj.cost === action.payload.cost)
 			if (findProduct) {
 				findProduct.count++
@@ -50,7 +52,7 @@ const cartSlice = createSlice({
 			}
 			updateTotalPriceCount(state)
 		},
-		minusProduct(state, action: PayloadAction<CartItem>) {
+		minusProduct(state, action: PayloadAction<CartItemType>) {
 			const findProduct = state.products.find(obj => obj.id === action.payload.id)
 			if (findProduct && findProduct.count <= 1) {
 				if (window.confirm('Ви дійсно хочете видалити продукт?')) {
@@ -61,7 +63,7 @@ const cartSlice = createSlice({
 			}
 			updateTotalPriceCount(state)
 		},
-		removeProduct(state, action: PayloadAction<CartItem>) {
+		removeProduct(state, action: PayloadAction<CartItemType>) {
 			if (window.confirm('Ви дійсно хочете видалити продукт?')) {
 				state.products = state.products.filter((obj) => obj.id !== action.payload.id)
 				updateTotalPriceCount(state)
@@ -76,6 +78,8 @@ const cartSlice = createSlice({
 	}
 })
 
+export const selectCartProducts = (state: RootState) => state.cartSlice.products
+export const selectCart = (state: RootState) => state.cartSlice
 
 //in filterSlice.actions  are stored all actions
 export const { addProduct, removeProduct, minusProduct, clearCart } = cartSlice.actions

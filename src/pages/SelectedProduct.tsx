@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import axios from "axios";
 import { LoaderSelectedProduct, ErrorBlock } from "../components";
 import { useSelector, useDispatch } from 'react-redux'
-import { addProduct, CartItem } from "../redux/Slices/cartSlice";
+import { addProduct, CartItemType } from "../redux/Slices/cartSlice";
 
 
 import React from 'react';
@@ -14,7 +14,6 @@ import { count } from 'console';
 const SelectedProduct: React.FC | any = () => {
 	const dispatch = useDispatch()
 	const { id } = useParams();
-	console.log(id)
 
 	const [product, setProduct] = React.useState<{
 		id: string
@@ -40,7 +39,7 @@ const SelectedProduct: React.FC | any = () => {
 		}
 	);
 
-	console.log(product)
+
 	const [error, setError] = React.useState<boolean>();
 	const [isLoading, setIsLoading] = React.useState<boolean>(false);
 	const [selectedExtent, setSelectedExtent] = React.useState<number>(0);
@@ -56,8 +55,9 @@ const SelectedProduct: React.FC | any = () => {
 	}
 
 	const productAdd = () => {
-		const productByCart: CartItem = {
+		const productByCart: CartItemType = {
 			id: Date.now(),
+			idBySearch:product.id,
 			name: product.name,
 			img: product.img[0],
 			cost: product.cost[selectedExtent],
@@ -70,8 +70,7 @@ const SelectedProduct: React.FC | any = () => {
 	React.useEffect(() => {
 		async function fetchProduct() {
 			try {
-				const { data } = await axios.get("https://64493955b88a78a8f0016922.mockapi.io/products/" + id)
-
+				const { data } = await axios.get("http://localhost:4444/product/" + id)
 				setProduct(data)
 				setIsLoading(true)
 				window.scrollTo(0, 0)
@@ -92,7 +91,7 @@ const SelectedProduct: React.FC | any = () => {
 		return (
 			<div className={'pages-product'}>
 				<div className="pages-product__cart">
-					<img className={'pages-product__img'} src={product.img[0]} alt="product" />
+				<img className={'pages-product__img'} src={product.img[0]} alt="product" />
 					<div className={'pages-product__info'}>
 						<h2 className={'pages-product__name'}>{product.name}</h2>
 						<p className={'pages-product__rating'}>Рейтиг: <span>{product.rating}</span> </p>

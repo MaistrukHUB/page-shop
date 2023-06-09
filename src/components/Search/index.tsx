@@ -31,7 +31,12 @@ export const Search: React.FC = () => {
 		setValue(event.target.value);
 		updateSearchValue(event.target.value);
 	};
-
+	React. useEffect(() => {
+		setValue(searchValue)
+	 
+	 
+	 }, [searchValue])
+	 
 	return (
 		<div className={styles.root}>
 			<svg
@@ -69,7 +74,7 @@ export const Search: React.FC = () => {
 			</svg>
 			<input
 				ref={inputRef}
-				value={searchValue}
+				value={	value  }
 				onChange={onChangeInput}
 				className={styles.input}
 				placeholder="Поиск пиццы..."

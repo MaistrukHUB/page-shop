@@ -1,18 +1,19 @@
 import React from 'react';
-import { Categories, ContentItems, Search } from "../components";
+import { Categories, ContentItems, Search,Sidebar,FormOrder } from "../components";
 import axios from "axios";
 import { categories } from "../components/Categories";
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import qs from 'qs'
 import { FilterSliceState, selectFilters, setFilters } from "../redux/Slices/filterSlice";
 import { fetchProducts, selectProducts } from "../redux/Slices/productsSlice";
 import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from '../redux/store';
 
 const Shop: React.FC = () => {
 
-
 	const navigate = useNavigate()
-	const dispatch = useDispatch()
+	const dispatch = useAppDispatch()
+
 	const isParams = React.useRef<boolean>(false)
 	const isMounted = React.useRef<boolean>(false)
 
@@ -28,7 +29,7 @@ const Shop: React.FC = () => {
 			const parseNavigate = qs.parse(window.location.search.substring(1))
 			const params = {
 				selectedCategory: categories.find(obj => obj.categoryProperty === parseNavigate.categoryProperty) || selectedCategory,
-				searchValue: parseNavigate.searchValue?.toString() || ''
+				searchValue: parseNavigate.searchValue ? parseNavigate.searchValue.toString() : ''
 			}
 			console.log(parseNavigate.searchValue)
 			if (searchValue !== undefined && selectedCategory !== undefined) {
@@ -45,7 +46,6 @@ const Shop: React.FC = () => {
 	//Функція яка робить запит до беку та витягує продукти
 	const getProducts = async () => {
 		dispatch(
-			//@ts-ignore
 			fetchProducts({
 				selectedCategory,
 				searchValue
@@ -57,7 +57,7 @@ const Shop: React.FC = () => {
 	React.useEffect(() => {
 		if (isMounted.current) {
 			const queryString = qs.stringify({
-				categoryProperty: selectedCategory?.categoryProperty,
+				categoryProperty: selectedCategory && selectedCategory.categoryProperty ? selectedCategory.categoryProperty : '',
 				searchValue
 			})
 			navigate(`?${queryString}`)
@@ -74,7 +74,9 @@ const Shop: React.FC = () => {
 	}, [selectedCategory, searchValue]);
 
 	return (
+		
 		<div className="page__shop">
+			<Sidebar visible={'visible-shop'} />
 
 			<div className={`content__top `}>
 				<Categories />
@@ -82,6 +84,7 @@ const Shop: React.FC = () => {
 				<Search />
 			</div>
 			<ContentItems products={products} status={status} />
+			<FormOrder/>
 		</div>
 	);
 }

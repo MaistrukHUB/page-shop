@@ -1,8 +1,9 @@
 import React from 'react';
 import { ProductBlock, MyLoader, ErrorBlock } from ".";
+import { ProductItem } from "../redux/Slices/productsSlice";
 
 type ContentItemsProps = {
-	products: {}[];
+	products: ProductItem[];
 	status: string;
 }
 const ContentItems: React.FC<ContentItemsProps> = ({ products, status }) => {
@@ -16,8 +17,8 @@ const ContentItems: React.FC<ContentItemsProps> = ({ products, status }) => {
 				<div className="content__items">
 					{status === 'loading'
 						? [...new Array(9)].map((_, index) => <MyLoader key={index} />)
-						: products.map((obj) => (
-							//@ts-ignore
+						: products.map((obj: ProductItem) => (
+							
 							<ProductBlock key={obj.id} itemObj={obj} />
 						))
 					}

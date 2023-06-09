@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { selectFiltersCategory, setCategory } from '../redux/Slices/filterSlice'
 
-type Category = {
+export type Category = {
 	name: string;
 	categoryProperty: string;
 }
@@ -22,7 +22,7 @@ export const categories: Category[] = [
 	},
 	{
 		name: 'Для бриття',
-		categoryProperty: "Shave"
+		categoryProperty: "shave"
 	},
 	{
 		name: 'Сертифікати/Абонименти',

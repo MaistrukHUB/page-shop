@@ -1,0 +1,68 @@
+.home{
+    width: 100%;
+    height: 100vh;
+    .mainPicture{
+        z-index: 10;
+        top: -20px;
+        left: 0;
+        position: absolute;
+        height: 700px;
+        width: 100%;
+        background:  no-repeat url(https://cdn.shopify.com/s/files/1/0254/3075/3335/files/Test_0fba39db-3d48-42ef-9fbb-caf982ffd6f8_2048x.jpg?v=1665413820);
+        background-size: cover  ;
+        background-position: top left;
+        background-attachment: fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: end;
+        transition: 2s;
+        @media (max-width: 1000px){
+            padding-right: 0;
+            align-items: center;
+        }
+        @media (max-width: 750px){
+            padding-right: 0px;
+        }
+        @media (max-width: 415px){
+            background-position: left 12% top 0px;
+            height: 900px;
+        }
+        .mainPicture-text{
+            font-size: 22px;
+            width: 500px;
+            @media (max-width: 1000px){
+                color: #fff;
+            }
+            @media (max-width: 750px){
+                text-align: center;
+                margin-top: 300px;
+                width: 400px;
+            }
+            @media (max-width:600px){
+                width: 300px;
+            }
+        }
+        .mainPicture-text{
+            span{
+                font-weight: 700; 
+                @media (max-width: 1000px){
+                    color: #fff;
+                }
+            }
+            p{
+                margin-top: 20px;
+            }
+            @media (max-width: 1000px){
+                display:none;
+            }
+        }
+    }
+    .mainContent{
+        margin-top: 700px;
+    }
+    @media (max-width:425px){
+        margin-top: 200px;
+    }
+}
+
