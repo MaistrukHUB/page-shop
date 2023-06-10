@@ -3,6 +3,7 @@
     margin-top: 70px;
     &-content{
         padding: 30px;
+        margin-bottom: 50px;
     }
     &-blokInfo{
         width: 100%;
@@ -36,6 +37,9 @@
 .blokInfo-text{
     padding: 15px;
     width: 50%;
+    p{
+        margin: 15px 0;
+    }
     @media (max-width:1000px) {
         width: 90%;
       }

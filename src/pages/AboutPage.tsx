@@ -11,7 +11,15 @@ const AboutPage: React.FC = () => {
                 <div className="blokInfo-text">
                     <div className="blokInfo-title">Наша команда</div>
                     <br />
-                    <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam inventore architecto a cupiditate ipsum sapiente porro saepe excepturi nesciunt molestiae ea, perspiciatis deserunt, itaque, dolor debitis! Earum repellendus velit id magnam iure veniam sint nobis quasi cupiditate fugit officia ut a, ipsa voluptatibus, incidunt quisquam? Dignissimos harum aut vero quibusdam, incidunt ipsum consectetur itaque ab aliquam ad iure eos, maiores suscipit, obcaecati est animi nulla expedita voluptatum laborum magni minus. Eius laudantium adipisci voluptate deleniti, numquam cumque nam vero assumenda aperiam. Nesciunt vero cupiditate earum explicabo minus, sequi illum. Doloribus quae corrupti iste dolores provident quidem dolorum nesciunt libero sit.</p>
+                    <p>Наша команда - це справжні професіонали з багаторічним досвідом у барберінгу. Кожен член нашої команди - висококваліфікований барбер з бездоганними навичками та вражаючим портфоліо.</p>
+
+                    <p>Ми - барбери з міжнародним досвідом. Ми отримали свою професійну освіту відомими барберами за кордоном та пройшли стажування в найкращих барберських салонах України. Це надає нам можливість використовувати передові техніки та новітні тенденції у своїй роботі.</p>
+
+                    <p>Кожен барбер нашої команди має вражаючу кількість сертифікатів та нагород, що свідчить про нашу пристрасність до професії та постійне прагнення до самовдосконалення. Ми постійно оновлюємо свої навички та вивчаємо нові техніки, щоб забезпечити нашим клієнтам найвищу якість обслуговування.</p>
+
+                    <p>У нас в команді працюють лише справжні професіонали, які ретельно вивчили свою справу та володіють майстерністю стрижки та бриття у всіх її аспектах. Ми пильно слухаємо бажання наших клієнтів та надаємо їм індивідуальний підхід, гарантуючи неперевершений результат кожного візиту.</p>
+
+                    <p>Обирайте нашу команду барберів, і ви отримаєте виняткову якість послуг та неповторний стиль, який підкреслить вашу унікальність. Ми гордимось своїм досвідом та професіоналізмом і готові зробити все, щоб ви відчули себе найкраще!</p>
                 </div>
             </div>
             <div className="aboutPage-blokInfo revers">
@@ -19,24 +27,28 @@ const AboutPage: React.FC = () => {
                     <img src="https://continental.vn.ua/wp-content/webp-express/webp-images/uploads/2022/07/img_6946-768x512.jpg.webp" alt="" />
                 </div>
                 <div className="blokInfo-text">
-                    <div className="blokInfo-title">Наша команда</div>
+                    <div className="blokInfo-title">Академія</div>
                     <br />
-                    <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam inventore architecto a cupiditate ipsum sapiente porro saepe excepturi nesciunt molestiae ea, perspiciatis deserunt, itaque, dolor debitis! Earum repellendus velit id magnam iure veniam sint nobis quasi cupiditate fugit officia ut a, ipsa voluptatibus, incidunt quisquam? Dignissimos harum aut vero quibusdam, incidunt ipsum consectetur itaque ab aliquam ad iure eos, maiores suscipit, obcaecati est animi nulla expedita voluptatum laborum magni minus. Eius laudantium adipisci voluptate deleniti, numquam cumque nam vero assumenda aperiam. Nesciunt vero cupiditate earum explicabo minus, sequi illum. Doloribus quae corrupti iste dolores provident quidem dolorum nesciunt libero sit.</p>
+                    <p>Ви мрієте про кар'єру барбера? Бажаєте освоїти професію, яка поєднує в собі мистецтво й вміння? Рекомендуємо вам звернути увагу на курси барбера!</p>
+
+<p>Курси барбера - це відмінна можливість для початківців і досвідчених майстрів покращити свої навички й розширити свій арсенал знань. На курсах ви вивчите техніки стрижки й гоління, дізнаєтеся про різні інструменти та матеріали, а також навчитеся працювати з клієнтами й керувати своїм бізнесом.</p>
+
+<p>Наші курси барбера надають унікальний досвід навчання, який поєднує в собі теорію й практику. Ви будете працювати з справжніми моделями й отримаєте зворотний зв'язок від досвідчених інструкторів, які допоможуть вам вдосконалюватися й досягати кращих результатів.</p>
+
+<p>Курси барбера відкривають перед вами широкі можливості для професійного зростання й розвитку кар'єри. Ви зможете працювати в різних сферах, таких як барбершопи, салони краси, фотосесії й телебачення. Крім того, ви можете відкрити свій власний барбершоп й створити свій бренд.</p>
+
+<p>Отримання курсів барбера не лише допоможе вам розвиватися у професійному плані, але й забезпечить стабільний заработок й захоплюючу роботу. Барберинг - це професія, яка ніколи не вийде з моди й завжди буде популярною в суспільстві.</p>
+
+<p>Не пропустіть свій шанс розпочати кар'єру
+                    </p>
+
                 </div>
             </div>
-            <div className="aboutPage-blokInfo">
-                <div className="blokInfo-img">
-                    <img src="https://continental.vn.ua/wp-content/webp-express/webp-images/uploads/2022/07/img_6946-768x512.jpg.webp" alt="" />
-                </div>
-                <div className="blokInfo-text">
-                    <div className="blokInfo-title">Наша команда</div>
-                    <br />
-                    <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam inventore architecto a cupiditate ipsum sapiente porro saepe excepturi nesciunt molestiae ea, perspiciatis deserunt, itaque, dolor debitis! Earum repellendus velit id magnam iure veniam sint nobis quasi cupiditate fugit officia ut a, ipsa voluptatibus, incidunt quisquam? Dignissimos harum aut vero quibusdam, incidunt ipsum consectetur itaque ab aliquam ad iure eos, maiores suscipit, obcaecati est animi nulla expedita voluptatum laborum magni minus. Eius laudantium adipisci voluptate deleniti, numquam cumque nam vero assumenda aperiam. Nesciunt vero cupiditate earum explicabo minus, sequi illum. Doloribus quae corrupti iste dolores provident quidem dolorum nesciunt libero sit.</p>
-                </div>
-            </div>
+
         </div>
     </div>
   )
 }
 
 export default AboutPage
+

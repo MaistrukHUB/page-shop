@@ -68,7 +68,7 @@ const productsSlice = createSlice({
 		builder.addCase(fetchProducts.fulfilled, (state, action: PayloadAction<ProductItem[]>) => {
 			state.products = action.payload
 			state.status = Status.SUCCESS
-			console.log(action.payload)
+	
 
 			// запит успішний
 		})
