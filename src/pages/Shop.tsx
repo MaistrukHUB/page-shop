@@ -84,7 +84,7 @@ const Shop: React.FC = () => {
 				<Search />
 			</div>
 			<ContentItems products={products} status={status} />
-			{/* <FormOrder/> */}
+			
 		</div>
 	);
 }

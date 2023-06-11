@@ -1,6 +1,21 @@
+import axios from 'axios'
 import React, { useEffect } from 'react'
+import { selectCart } from "../redux/Slices/cartSlice";
+import { useSelector, useDispatch } from 'react-redux'
 
 const FormOrder:React.FC = () => {
+  const { products } = useSelector(selectCart)
+
+  let LIST_BY_MESSAGE =''
+
+  const LIST_BY_ORDER = products && products.map((product)=>{
+    return(LIST_BY_MESSAGE +=`<b>Продукт: </b>${product.name}`+ `<b>  Кількість:</b>${product.count} \n`)
+    
+  })
+
+  const TOKEN:string ='6035490675:AAHiOj1PMoKX3yYW3cuz4Ai0FNP_da5iFbE'
+  const CHAT_ID:string ='-1001972265061'
+  const URI_API:string =`https://api.telegram.org/bot${TOKEN}/sendMessage`
 
     const [nameUser,setNameUser ] =React. useState<string>('')
     const [phoneUser,setPhoneUser ] =React. useState<string>('')
@@ -66,14 +81,23 @@ const FormOrder:React.FC = () => {
             }else{
               setEmailUserError('')
             }
-         
     }
 
 
 
-     const handelSandOrder =(e:React.MouseEvent<HTMLButtonElement>)=>{
-      console.log('handelSandOrder')
-     }
+      const handelSandOrder =(e:React.MouseEvent<HTMLButtonElement>)=>{
+      e.preventDefault()
+      let message:string =`<b>ЗАЯВКА З САЙТУ</b>\n`
+      message += `<b>Замовник: </b>${nameUser} \n`
+      message += `<b>Телефон: </b>${phoneUser} \n`
+      message += `<b>Email: </b>${emailUser} \n`
+
+      axios.post(URI_API,{
+        chat_id: CHAT_ID,
+        parse_mode:"html",
+        text: message + LIST_BY_MESSAGE
+      })
+      }
 
 
   return (
@@ -81,9 +105,9 @@ const FormOrder:React.FC = () => {
       <div className="closeModal"></div>
         <div className="inputBlock">
           {(nameUserDirty && nameUserDirty) && <div className='errorForm'>{nameUserError}</div>}
-           <input  onChange={ nameInputHandel} onBlur={(e) => blurHandel(e)} name='name' placeholder='NAME' className='nameUser inputOrder' value={nameUser} type="text" />
+            <input  onChange={ nameInputHandel} onBlur={(e) => blurHandel(e)} name='name' placeholder='NAME' className='nameUser inputOrder' value={nameUser} type="text" />
 
-           {(phoneUserDirty && phoneUserDirty) && <div className='errorForm'>{phoneUserError}</div>}
+            {(phoneUserDirty && phoneUserDirty) && <div className='errorForm'>{phoneUserError}</div>}
             <input onChange={ phoneInputHandel}  onBlur={(e) => blurHandel(e)} name='phone' placeholder='PHONE' className='phoneUser inputOrder' value={phoneUser} type="text" />
 
             {(emailUserDirty && emailUserDirty) && <div className='errorForm'>{emailUserError}</div>}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { CartItem, CartEmpty,Sidebar } from "../components";
+import { CartItem, CartEmpty,Sidebar,FormOrder } from "../components";
 import { useSelector, useDispatch } from 'react-redux'
 import { clearCart } from "../redux/Slices/cartSlice";
 import { Link } from 'react-router-dom';
@@ -70,7 +70,9 @@ const Cart: React.FC = () => {
 					</div>
 				</div>
 			</div>
-		</div></div>
+		</div>
+		<FormOrder/>
+		</div>
 			
 		);
 	}

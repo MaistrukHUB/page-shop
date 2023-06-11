@@ -15,19 +15,19 @@ type PriceType = PriceItem[]
 const price:PriceType = [
 	{
 		name:'ЧОЛОВІЧА СТРИЖКА',
-		cost:'від 350'
+		cost:'від  350'
 	},
 	{
 		name:'СТРИЖКА БОРОДИ',
-		cost:'від 250'
+		cost:'від  250'
 	},
 	{
 		name:'СТРИЖКА + БОРОДИ',
-		cost:'від 650'
+		cost:'від  650'
 	},
 	{
 		name:'ДИТЯЧА СТРИЖКА',
-		cost:'від  300'
+		cost:'від   300'
 	},
 	{
 		name:'СТРИЖКА ПІД 0',
@@ -35,7 +35,7 @@ const price:PriceType = [
 	},
 	{
 		name:'СТРИЖКА НОЖИЦЯМИ',
-		cost:'від 400'
+		cost:'від  400'
 	},
 	{
 		name:'КАМУФЛЮВАННЯ БОРОДИ',
