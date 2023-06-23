@@ -62,8 +62,6 @@ const teamSlice = createSlice({
 		builder.addCase(fetchTeam.fulfilled, (state, action: PayloadAction<TeamItemType[]>) => {
 			state.team = action.payload
 			state.status = Status.SUCCESS
-			console.log(action.payload)
-
 			// запит успішний
 		})
 		builder.addCase(fetchTeam.rejected, (state) => {

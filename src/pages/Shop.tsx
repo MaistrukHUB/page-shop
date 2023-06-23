@@ -31,7 +31,6 @@ const Shop: React.FC = () => {
 				selectedCategory: categories.find(obj => obj.categoryProperty === parseNavigate.categoryProperty) || selectedCategory,
 				searchValue: parseNavigate.searchValue ? parseNavigate.searchValue.toString() : ''
 			}
-			console.log(parseNavigate.searchValue)
 			if (searchValue !== undefined && selectedCategory !== undefined) {
 				dispatch(setFilters({
 					...params
