@@ -17,7 +17,10 @@ const SlickerProduct:React.FC<SlickTeamBlockProps> = ({settings}) => {
     return (
     <Slider {...settings}>
         {products.map((product) => (
-        <div className="card">
+        <div  
+            key={product.id}
+            className="card"
+        >
             <ProductBlock itemObj={product}/>
         </div>
         ))}

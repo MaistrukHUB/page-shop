@@ -18,7 +18,10 @@ const SlickerTeam: React.FC<SlickTeamBlockProps>= ({settings}) => {
   return (
     <Slider {...settings}>
       {team.map((item) => (
-        <div className="card">
+        <div 
+          key={String(item.id)}
+          className="card"
+        >
           <TeamItem item={item}/>
         </div>
       ))}
