@@ -2,14 +2,23 @@ import axios from 'axios'
 import React, { useEffect } from 'react'
 import { selectCart } from "../redux/Slices/cartSlice";
 import { useSelector, useDispatch } from 'react-redux'
+import SuccessModal from '../components/SuccessModal'; // 
 
-const FormOrder:React.FC = () => {
+
+interface FormOrderProps {
+  setOpenOrderForm: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const FormOrder: React.FC<FormOrderProps> = ({ setOpenOrderForm }) =>{
   const { products } = useSelector(selectCart)
 
-  let LIST_BY_MESSAGE =''
+  const [showSuccessModal, setShowSuccessModal] = React.useState<boolean>(false);
 
-  const LIST_BY_ORDER = products && products.map((product)=>{
-    return(LIST_BY_MESSAGE +=`<b>Продукт: </b>${product.name}`+ `<b>  Кількість:</b>${product.count} \n`)
+
+  let LIST_BY_MESSAGE:string =''
+
+  const LIST_BY_ORDER:string[] = products && products.map((product)=>{
+    return(LIST_BY_MESSAGE +=`<b>Продукт: </b>${product.name}`+`<b>Обєм: </b>${product.extent}`+`<b>  Кількість:</b>${product.count} \n`)
     
   })
 
@@ -86,23 +95,33 @@ const FormOrder:React.FC = () => {
 
 
       const handelSandOrder =(e:React.MouseEvent<HTMLButtonElement>)=>{
-      e.preventDefault()
-      let message:string =`<b>ЗАЯВКА З САЙТУ</b>\n`
-      message += `<b>Замовник: </b>${nameUser} \n`
-      message += `<b>Телефон: </b>${phoneUser} \n`
-      message += `<b>Email: </b>${emailUser} \n`
+        e.preventDefault()
+        let message:string =`<b>ЗАЯВКА З САЙТУ</b>\n`
+        message += `<b>Замовник: </b>${nameUser} \n`
+        message += `<b>Телефон: </b>${phoneUser} \n`
+        message += `<b>Email: </b>${emailUser} \n`
 
-      axios.post(URI_API,{
-        chat_id: CHAT_ID,
-        parse_mode:"html",
-        text: message + LIST_BY_MESSAGE
-      })
+        axios.post(URI_API,{
+          chat_id: CHAT_ID,
+          parse_mode:"html",
+          text: message + LIST_BY_MESSAGE
+        })
+        setShowSuccessModal(true);
+        
       }
 
 
+      const handelCloseModal =()=>{
+        setOpenOrderForm(false)
+      }
+
   return (
     <div className='formOrder'>
-      <div className="closeModal"></div>
+      <div 
+      onClick={handelCloseModal}
+        className="closeModal"
+      >
+      </div>
         <div className="inputBlock">
           {(nameUserDirty && nameUserDirty) && <div className='errorForm'>{nameUserError}</div>}
             <input  onChange={ nameInputHandel} onBlur={(e) => blurHandel(e)} name='name' placeholder='NAME' className='nameUser inputOrder' value={nameUser} type="text" />
@@ -115,6 +134,8 @@ const FormOrder:React.FC = () => {
         </div>
 
         <button disabled={!formVoid} type='submit' onClick={(e)=> handelSandOrder(e)} className='sendOrder'>відправити замовлення</button>
+		{showSuccessModal && <SuccessModal setOpenOrderForm={setOpenOrderForm} onClose={() => setShowSuccessModal(false)} />}
+
     </div>
   )
 }

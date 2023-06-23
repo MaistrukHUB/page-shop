@@ -10,6 +10,7 @@ type ProductBlockProps = {
 		img: string[];
 		cost: number[];
 		extent: number[];
+		category:string;
 	}
 
 }
@@ -36,6 +37,7 @@ const ProductBlock: React.FC<ProductBlockProps> = ({ itemObj }) => {
 			img: itemObj.img[0],
 			cost: itemObj.cost[selectedExtent],
 			extent: itemObj.extent[selectedExtent],
+			category:itemObj.category,
 			count: 0
 		}
 		dispatch(addProduct(productByCart))
@@ -66,7 +68,7 @@ const ProductBlock: React.FC<ProductBlockProps> = ({ itemObj }) => {
 									<li
 										onClick={() => handelExtent(index)}
 										key={item}
-										className={selectedExtent === index ? 'active' : ''}>{item} гр.</li>
+										className={selectedExtent === index ? 'active' : ''}>{item} {itemObj.category === "beard" || itemObj.category ===  "shave" ? "мл.":"гр."}</li>
 								))
 							}
 						</ul>

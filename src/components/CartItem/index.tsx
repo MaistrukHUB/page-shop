@@ -15,6 +15,7 @@ type CartItemProps = {
 		extent: number;
 		count: number;
 		cost: number;
+		category:string
 	}
 }
 
@@ -25,11 +26,16 @@ const CartItem: React.FC<CartItemProps> = ({ product }) => {
 		dispatch(addProduct(product))
 	}
 	const onClickMinus = () => {
-		dispatch(minusProduct(product))
+		if ( product.count <= 1) {
+			if (window.confirm('Ви дійсно хочете видалити продукт?')) {
+				dispatch(minusProduct(product))
+			}
+		}
 	}
 	const onClickRemove = () => {
-		console.log('remove')
+		if (window.confirm('Ви дійсно хочете видалити продукт?')) {
 		dispatch(removeProduct(product))
+		}
 	}
 
 	return (

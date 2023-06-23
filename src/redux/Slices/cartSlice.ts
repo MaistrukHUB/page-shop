@@ -10,6 +10,7 @@ export type CartItemType = {
 	extent: number;
 	count: number;
 	cost: number;
+	category: string
 }
 
 export interface CartSliceState {
@@ -55,25 +56,19 @@ const cartSlice = createSlice({
 		minusProduct(state, action: PayloadAction<CartItemType>) {
 			const findProduct = state.products.find(obj => obj.id === action.payload.id)
 			if (findProduct && findProduct.count <= 1) {
-				if (window.confirm('Ви дійсно хочете видалити продукт?')) {
 					state.products = state.products.filter((obj) => obj.id !== action.payload.id)
-				}
 			} else if (findProduct && findProduct.count > 1) {
 				findProduct.count--
 			}
 			updateTotalPriceCount(state)
 		},
 		removeProduct(state, action: PayloadAction<CartItemType>) {
-			if (window.confirm('Ви дійсно хочете видалити продукт?')) {
 				state.products = state.products.filter((obj) => obj.id !== action.payload.id)
 				updateTotalPriceCount(state)
-			}
 		},
 		clearCart(state) {
-			if (window.confirm('Ви дійсно хочете очистити корзину?')) {
 				state.products = []
 				updateTotalPriceCount(state)
-			}
 		}
 	}
 })

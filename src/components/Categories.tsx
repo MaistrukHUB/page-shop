@@ -25,6 +25,10 @@ export const categories: Category[] = [
 		categoryProperty: "shave"
 	},
 	{
+		name: 'Pубна паста',
+		categoryProperty: "Toothpaste"
+	},
+	{
 		name: 'Сертифікати/Абонименти',
 		categoryProperty: "sale"
 	},

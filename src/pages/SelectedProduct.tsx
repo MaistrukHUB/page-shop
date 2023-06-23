@@ -62,6 +62,7 @@ const SelectedProduct: React.FC | any = () => {
 			img: product.img[0],
 			cost: product.cost[selectedExtent],
 			extent: product.extent[selectedExtent],
+			category: product.category,
 			count: 0
 		}
 		dispatch(addProduct(productByCart))
@@ -111,7 +112,7 @@ const SelectedProduct: React.FC | any = () => {
 											<li
 												onClick={() => handelExtent(index)}
 												key={item}
-												className={selectedExtent === index ? 'active' : ''}>{item} гр.</li>
+												className={selectedExtent === index ? 'active' : ''}>{item} {product.category === "beard" || product.category === "shave" ? "мл.":"гр."}</li>
 										))
 									}
 								</ul>

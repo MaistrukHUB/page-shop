@@ -65,7 +65,7 @@ const Sidebar: React.FC<SidebarProps> = ({ visible }) => {
 			<ul className="price-list ">
 				<p className="price-list__title">ПОСЛУГИ</p>
 				{price &&  price.map((item:PriceItem)=>(
-					<li key={item.name} className="price-list__item"><p>{item.name}</p><span></span>{item.cost}ГРН</li>
+					<li key={item.name} className="price-list__item"><p>{item.name}</p><span></span>{item.cost}  ГРН</li>
 				)) }
 			</ul>
 		</div>

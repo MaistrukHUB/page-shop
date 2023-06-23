@@ -10,7 +10,7 @@ const MainLayout = () => {
 				<div className="container">
 					<Outlet />
 				</div>
-			<Reserve/>
+			{/* <Reserve/> */}
 			<CallButton/>
 		</div >
 	);
