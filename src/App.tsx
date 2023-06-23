@@ -12,17 +12,6 @@ import axios from "axios";
 
 
 function App() {
-  //@ts-ignore
-  const [first, setfirst] = useState('')
-  React.useEffect(() => {
-
-    //@ts-ignore
-    axios.get('http://localhost:4444/').then(({ data }) => {
-      setfirst(data)
-
-    })
-  }, [])
-  console.log(first)
 
 
   return (

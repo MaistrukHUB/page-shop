@@ -20,8 +20,6 @@ const Home: React.FC = () => {
 			searchValue:  ''
 		}
 	React.useEffect(() => {
-	
-		//@ts-ignore
 		dispatch(setFilters({
 			...params
 		})
